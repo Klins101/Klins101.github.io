@@ -1,0 +1,478 @@
+body {
+  background-color: var(--primary);
+  color: var(--text);
+  font-family: 'Calibre', sans-serif;
+  overflow-x: hidden;
+}
+
+.navbar {
+  background-color: rgba(10, 25, 47, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+.nav-link {
+  color: var(--light);
+  margin: 0 1rem;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.9));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  color: var(--light);
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn-custom {
+  background-color: transparent;
+  border: 2px solid var(--secondary);
+  color: var(--secondary);
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+  color: var(--secondary);
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.section-title {
+  color: var(--light);
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background-color: var(--secondary);
+  bottom: -10px;
+  left: 0;
+}
+
+.project-card {
+  background-color: #112240;
+  border: none;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-card .card-body {
+  padding: 2rem;
+}
+
+.skill-icon {
+  font-size: 3rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  color: var(--light);
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--secondary);
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--secondary);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+
+/* New styles for awards and leadership */
+.award-item, .leadership-item {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.award-item:hover, .leadership-item:hover {
+  transform: translateX(10px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+}
+
+.award-title, .leadership-title {
+  color: var(--light);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.award-year, .leadership-year {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Research paper styling */
+.paper-card {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.paper-card:hover {
+  transform: translateX(10px);
+}
+
+.paper-title {
+  color: var(--light);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.paper-authors {
+  color: var(--accent);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.paper-venue {
+  color: var(--slate);
+  font-style: italic;
+}
+
+/* Timeline styling for experience */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--light-navy);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--primary);
+}
+
+/* Project grid improvements */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.tech-tag {
+  background: var(--light-navy);
+  color: var(--accent);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+/* Skill section improvements */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.skill-category h3 {
+  color: var(--light);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.5rem;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-item {
+  background: var(--light-navy);
+  color: var(--light);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-2px);
+  color: var(--accent);
+}
+
+
+
+.timeline-item {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 3rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--primary);
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: var(--light-navy);
+}
+
+.education-title, .experience-title {
+  color: var(--light);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-year, .experience-duration {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-school, .experience-company {
+  color: var(--light-slate);
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience-details {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.experience-details li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.experience-details li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline-item {
+      padding-left: 1.5rem;
+  }
+  
+  .project-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+.awards-subtitle {
+  color: var(--light);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.awards-subtitle::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 1.5rem;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+
+.award-item {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--light-navy);
+  height: 100%;
+}
+
+.award-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+.scholarship-item {
+  background: linear-gradient(120deg, var(--navy), var(--light-navy));
+  border-left: 4px solid var(--accent);
+}
+
+.award-title {
+  color: var(--light);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.award-year {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-family: 'SF Mono', monospace;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .awards-subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+  }
+  
+  .award-item {
+      padding: 1.2rem;
+  }
+}
