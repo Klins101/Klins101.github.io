@@ -626,3 +626,60 @@ if (aboutContent) {
     
     observer.observe(aboutContent);
 }
+
+
+// Image loading and optimization
+document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.grid-img');
+    
+    // Function to check if image is in viewport
+    const isInViewport = (element) => {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    };
+
+    // Function to handle image loading
+    const loadImage = (img) => {
+        // Get the highest resolution source
+        const sources = img.parentElement.getElementsByTagName('source');
+        const highResSource = sources[0]?.srcset || img.src;
+        
+        // Create a new image to preload
+        const tempImage = new Image();
+        
+        tempImage.onload = () => {
+            img.src = highResSource;
+            img.classList.add('loaded');
+            img.parentElement.classList.add('loaded');
+        };
+        
+        tempImage.src = highResSource;
+    };
+
+    // Intersection Observer for lazy loading
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadImage(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        rootMargin: '50px 0px',
+        threshold: 0.1
+    });
+
+    // Observe all images
+    images.forEach(img => {
+        if (isInViewport(img)) {
+            loadImage(img);
+        } else {
+            imageObserver.observe(img);
+        }
+    });
+});
