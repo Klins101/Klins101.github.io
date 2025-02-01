@@ -41,410 +41,1101 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand text-light" href="#">KA</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="education">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#research">Research</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container nav-container">
+        <a href="#" class="logo">
+            <span class="logo-text">KA</span>
+        </a>
+        
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="row">
-                <div class="col-lg-8" data-aos="fade-up">
-                    <h1>Klinsmann Agyei</h1>
-                    <p class="text-light">PhD Researcher in Robotics & AI</p>
-                    <p>Advancing adaptive control systems through machine learning integration</p>
-                    <a href="#contact" class="btn btn-custom">Get in touch</a>
-                </div>
-            </div>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#research" class="nav-link">Research</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-right">About Me</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <p>Currently pursuing my PhD at the University of Hertfordshire. My expertise spans Python, MATLAB, and C++, complemented by proficiency in CAD tools like SolidWorks.</p>
-                    <p>With extensive experience in communication frameworks such as ROS 2, I enable seamless interaction with robotic systems. My research interests encompass adaptive control, data-driven decision-making, and the application of advanced machine learning algorithms to enhance system performance and robustness.</p>
-                    <p>When I'm not immersed in research, you'll find me supporting Manchester United or taking peaceful walks while listening to gospel music.</p>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="img/placeholder.jpg" alt="Klinsmann Agyei" class="img-fluid rounded-circle floating">
-                </div>
-            </div>
+        <div class="nav-social">
+            <a href="https://github.com/Klins101" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/klinsmann-agyei-862396239/" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
         </div>
-    </section>
+    </div>
+</nav>
 
-
-    <!-- Education Section -->
-<section id="education" class="section">
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-particles" id="particles-js"></div>
     <div class="container">
-        <h2 class="section-title" data-aos="fade-right">Education</h2>
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-up">
-                <h3 class="education-title">PhD., Robotics and Artificial Intelligence</h3>
-                <p class="education-year">2024-2027</p>
-                <p class="education-school">University of Hertfordshire</p>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-intro">Hi, I'm</div>
+                <h1 class="hero-name">Klinsmann Agyei</h1>
+                <h2 class="hero-title">Robotics & AI Researcher</h2>
+                <p class="hero-description">
+                    Advancing adaptive control systems through the integration of machine learning techniques.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-secondary">View Projects</a>
+                </div>
             </div>
-            
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="education-title">M.S., Robotics and Artificial Intelligence</h3>
-                <p class="education-year">2022-2024</p>
-                <p class="education-school">ITMO University</p>
-            </div>
-            
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="education-title">M.S., Financial Engineering</h3>
-                <p class="education-year">2022-2024</p>
-                <p class="education-school">WorldQuant University</p>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="education-title">B.S., Mechanical Engineering</h3>
-                <p class="education-year">2015-2019</p>
-                <p class="education-school">University of Energy and Natural Resources</p>
+            <div class="hero-image">
+                <div class="profile-wrapper">
+                    <div class="profile-img-container">
+                        <img src="img/placeholder.jpg" alt="Klinsmann Agyei" class="profile-img">
+                    </div>
+                    <div class="tech-badges">
+                        <div class="badge">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-
-<!-- Research Papers Section -->
-<section id="research" class="section">
+<!-- About Section -->
+<section id="about" class="section">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-right">Research</h2>
-        <div class="paper-list">
-            <div class="paper-card" data-aos="fade-up">
-                <h3 class="paper-title">Large Language Model-based Decision-making for COLREGs and the Control of Autonomous Surface Vehicles</h3>
-                <p class="paper-authors">K. Agyei, P. Sarhadi, W. Naeem</p>
-                <p class="paper-venue">Submitted to European Control Conference, 2025</p>
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-description">
+                    <p class="lead-text">
+                        Currently pursuing my PhD at the University of Hertfordshire, I'm passionate about pushing the boundaries of robotics and artificial intelligence.
+                    </p>
+                    <div class="about-details">
+                        <p>
+                            My expertise spans Python, MATLAB, and C++, complemented by proficiency in CAD tools like SolidWorks. With extensive experience in communication frameworks such as ROS 2.
+                        </p>
+                        <p>
+                            My research interests encompass:
+                        </p>
+                        <ul class="interest-list">
+                            <li>Adaptive Control Systems</li>
+                            <li>Machine Learning Integration</li>
+                            <li>Robotic System</li>
+                            <li>Data-Driven Decision Making</li>
+                        </ul>
+                    </div>
+                    <div class="about-personal">
+                        <p>
+                            When I'm not immersed in research, you'll find me supporting Manchester United or taking peaceful walks while listening to gospel music.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-cta">
+                    <a href="#contact" class="btn btn-primary">Contact Me</a>
+                    <a href="/path-to-cv.pdf" class="btn btn-secondary" download>
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
             </div>
             
-            <div class="paper-card" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="paper-title">CORALL: A COLREGs-Guided Risk-Aware LLM for Decision-Making in Autonomous Surface Vehicles</h3>
-                <p class="paper-authors">K. Agyei, P. Sarhadi, W. Naeem</p>
-                <p class="paper-venue">Submitted to IEEE Transaction, 2025</p>
-            </div>
-
-            <div class="paper-card" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="paper-title">Team exploration and task allocation on graphs using spectral decomposition and Deep Reinforcement Learning</h3>
-                <p class="paper-authors">Klinsmann Agyei, Alexey Vedyakov</p>
-                <p class="paper-venue">ITMO University, 2024</p>
-            </div>
-
-            <div class="paper-card" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="paper-title">Study of Control algorithms for robotic systems based on reinforcement Learning</h3>
-                <p class="paper-authors">Klinsmann Agyei, Alexey Vedyakov</p>
-                <p class="paper-venue">ITMO University, 2024</p>
-            </div>
-
-            <div class="paper-card" data-aos="fade-up" data-aos-delay="400">
-                <h3 class="paper-title">New Horizon, Quantitative behavioral models</h3>
-                <p class="paper-authors">Klinsmann Agyei, Alberto Buccellato, Greg Ciresi</p>
-                <p class="paper-venue">WorldQuant University, 2022</p>
-            </div>
-
-            <div class="paper-card" data-aos="fade-up" data-aos-delay="500">
-                <h3 class="paper-title">Design and Fabrication of an electric power amplifier</h3>
-                <p class="paper-authors">Klinsmann Agyei, Peter Tokor Sobuur, Christopher Morimaha, Nana Agyemang Derkyi</p>
-                <p class="paper-venue">University of Energy and Natural Resources, 2019</p>
-            </div>
-
         </div>
     </div>
 </section>
 
 
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-timeline">
+                <!-- PhD Program -->
+                <div class="education-item current">
+                    <div class="education-content">
+                        <div class="degree-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="education-period">2024 - 2027</div>
+                        <h3 class="degree-title">Ph.D. in Robotics and Artificial Intelligence</h3>
+                        <div class="institution">
+                            <i class="fas fa-university"></i>
+                            University of Hertfordshire
+                        </div>
+                        <div class="degree-details">
+                            <div class="research-focus">
+                                <h4>Research Focus:</h4>
+                                <p>Advancing adaptive control systems through the integration of machine learning techniques</p>
+                            </div>
+                            <div class="key-areas">
+                                <span class="area-tag">Adaptive Control</span>
+                                <span class="area-tag">Machine Learning</span>
+                                <span class="area-tag">Robotics</span>
+                                <span class="area-tag">AI Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Masters Programs -->
+                <div class="education-item">
+                    <div class="education-content">
+                        <div class="degree-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="education-period">2022 - 2024</div>
+                        <h3 class="degree-title">M.S. in Robotics and Artificial Intelligence</h3>
+                        <div class="institution">
+                            <i class="fas fa-university"></i>
+                            ITMO University
+                        </div>
+                        <div class="degree-details">
+                            <div class="achievements">
+                                <div class="achievement-item">
+                                    <i class="fas fa-award"></i>
+                                    Russian Government Scholarship
+                                </div>
+                            </div>
+                            <div class="key-areas">
+                                <span class="area-tag">Computer Vision</span>
+                                <span class="area-tag">Deep Learning</span>
+                                <span class="area-tag">Robotic Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="education-item">
+                    <div class="education-content">
+                        <div class="degree-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="education-period">2022 - 2024</div>
+                        <h3 class="degree-title">M.S. in Financial Engineering</h3>
+                        <div class="institution">
+                            <i class="fas fa-university"></i>
+                            WorldQuant University
+                        </div>
+                        <div class="degree-details">
+                            <div class="key-areas">
+                                <span class="area-tag">Quantitative Analysis</span>
+                                <span class="area-tag">Financial Modeling</span>
+                                <span class="area-tag">Risk Management</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Bachelor's Program -->
+                <div class="education-item">
+                    <div class="education-content">
+                        <div class="degree-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <div class="education-period">2015 - 2019</div>
+                        <h3 class="degree-title">B.S. in Mechanical Engineering</h3>
+                        <div class="institution">
+                            <i class="fas fa-university"></i>
+                            University of Energy and Natural Resources
+                        </div>
+                        <div class="degree-details">
+                            <div class="achievements">
+                                <div class="achievement-item">
+                                    <i class="fas fa-award"></i>
+                                    Newmont Ghana Scholarship
+                                </div>
+                            </div>
+                            <div class="key-areas">
+                                <span class="area-tag">Mechanical Design</span>
+                                <span class="area-tag">Engineering Principles</span>
+                                <span class="area-tag">CAD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Work Experience Section -->
+
+    <section id="research" class="section">
+        <div class="container">
+            <h2 class="section-title">Research</h2>
+    
+            <div class="research-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="2025">2025</button>
+                <button class="filter-btn" data-filter="2024">2024</button>
+                <button class="filter-btn" data-filter="2022">2022</button>
+                <button class="filter-btn" data-filter="2019">2019</button>
+            </div>
+            
+            <div class="research-grid">
+                <!-- Paper 1 -->
+                <div class="research-paper" data-year="2025">
+                    <div class="paper-content">
+                        <div class="paper-meta">
+                            <span class="paper-year">2025</span>
+                            <span class="paper-status">Submitted</span>
+                        </div>
+                        <h3 class="paper-title">Large Language Model-based Decision-making for COLREGs and the Control of Autonomous Surface Vehicles</h3>
+                        <div class="paper-authors">
+                            <span class="author">K. Agyei</span>
+                            <span class="author">P. Sarhadi</span>
+                            <span class="author">W. Naeem</span>
+                        </div>
+                        <div class="paper-venue">
+                            <i class="fas fa-book"></i>
+                            European Control Conference
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag">LLMs</span>
+                            <span class="tag">Autonomous Vehicles</span>
+                            <span class="tag">Control Systems</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="https://arxiv.org/abs/2411.16587" class="paper-link">
+                                <i class="fas fa-file-pdf"></i>
+                                PDF
+                            </a>
+                            <a href="#" class="paper-link cite-link" 
+                               data-bibtex="@inproceedings{agyei2025llm,
+        title={Large Language Model-based Decision-making for COLREGs and the Control of Autonomous Surface Vehicles},
+        author={Agyei, Klinsmann and Sarhadi, P. and Naeem, W.},
+        booktitle={European Control Conference},
+        year={2025},
+        note={Submitted}
+    }"
+                               data-apa="Agyei, K., Sarhadi, P., & Naeem, W. (2025). Large Language Model-based Decision-making for COLREGs and the Control of Autonomous Surface Vehicles. European Control Conference. [Submitted]">
+                                <i class="fas fa-quote-right"></i>
+                                Cite
+                            </a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Paper 2 -->
+                <div class="research-paper" data-year="2025">
+                    <div class="paper-content">
+                        <div class="paper-meta">
+                            <span class="paper-year">2025</span>
+                            <span class="paper-status">Submitted</span>
+                        </div>
+                        <h3 class="paper-title">CORALL: A COLREGs-Guided Risk-Aware LLM for Decision-Making in Autonomous Surface Vehicles</h3>
+                        <div class="paper-authors">
+                            <span class="author">K. Agyei</span>
+                            <span class="author">P. Sarhadi</span>
+                            <span class="author">W. Naeem</span>
+                        </div>
+                        <div class="paper-venue">
+                            <i class="fas fa-book"></i>
+                            IEEE Transaction
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag">Risk Assessment</span>
+                            <span class="tag">LLMs</span>
+                            <span class="tag">Maritime</span>
+                        </div>
+                        <div class="paper-links">
+                            <a href="#" class="paper-link">
+                                <i class="fas fa-file-pdf"></i>
+                                PDF
+                            </a>
+                            
+                                
+                           
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Paper 3 -->
+                <div class="research-paper" data-year="2024">
+                    <div class="paper-content">
+                        <div class="paper-meta">
+                            <span class="paper-year">2024</span>
+                        </div>
+                        <h3 class="paper-title">Team exploration and task allocation on graphs using spectral decomposition and Deep Reinforcement Learning</h3>
+                        <div class="paper-authors">
+                            <span class="author">Klinsmann Agyei</span>
+                            <span class="author">Alexey Vedyakov</span>
+                        </div>
+                        <div class="paper-venue">
+                            <i class="fas fa-university"></i>
+                            ITMO University
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag">Deep RL</span>
+                            <span class="tag">Graph Theory</span>
+                            <span class="tag">Multi-Agent Systems</span>
+                        </div>
+                        <div class="paper-links">
+                                <a href="#" class="paper-link">
+                                    <i class="fas fa-file-pdf"></i>
+                                    PDF
+                                </a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Paper 4 -->
+                <div class="research-paper" data-year="2024">
+                    <div class="paper-content">
+                        <div class="paper-meta">
+                            <span class="paper-year">2024</span>
+                        </div>
+                        <h3 class="paper-title">Study of Control algorithms for robotic systems based on reinforcement Learning</h3>
+                        <div class="paper-authors">
+                            <span class="author">Klinsmann Agyei</span>
+                            <span class="author">Alexey Vedyakov</span>
+                        </div>
+                        <div class="paper-venue">
+                            <i class="fas fa-university"></i>
+                            ITMO University
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag">Reinforcement Learning</span>
+                            <span class="tag">Control Systems</span>
+                            <span class="tag">Robotics</span>
+                        </div>
+                        <div class="paper-links">
+                                <a href="#" class="paper-link">
+                                    <i class="fas fa-file-pdf"></i>
+                                    PDF
+                                </a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Paper 5 -->
+                <div class="research-paper" data-year="2022">
+                    <div class="paper-content">
+                        <div class="paper-meta">
+                            <span class="paper-year">2022</span>
+                        </div>
+                        <h3 class="paper-title">New Horizon, Quantitative behavioral models</h3>
+                        <div class="paper-authors">
+                            <span class="author">Klinsmann Agyei</span>
+                            <span class="author">Alberto Buccellato</span>
+                            <span class="author">Greg Ciresi</span>
+                        </div>
+                        <div class="paper-venue">
+                            <i class="fas fa-university"></i>
+                            WorldQuant University
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag">Quantitative Analysis</span>
+                            <span class="tag">Behavioral Models</span>
+                            <span class="tag">Financial Engineering</span>
+                        </div>
+                        <div class="paper-links">
+                    
+                                <a href="#" class="paper-link">
+                                    <i class="fas fa-file-pdf"></i>
+                                    PDF
+                                </a>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Paper 6 -->
+                <div class="research-paper" data-year="2019">
+                    <div class="paper-content">
+                        <div class="paper-meta">
+                            <span class="paper-year">2019</span>
+                        </div>
+                        <h3 class="paper-title">Design and Fabrication of an electric power amplifier</h3>
+                        <div class="paper-authors">
+                            <span class="author">Klinsmann Agyei</span>
+                            <span class="author">Peter Tokor Sobuur</span>
+                            <span class="author">Christopher Morimaha</span>
+                            <span class="author">Nana Agyemang Derkyi</span>
+                        </div>
+                        <div class="paper-venue">
+                            <i class="fas fa-university"></i>
+                            University of Energy and Natural Resources
+                        </div>
+                        <div class="paper-tags">
+                            <span class="tag">Electric Power</span>
+                            <span class="tag">Amplifier Design</span>
+                            <span class="tag">Engineering</span>
+                        </div>
+                        <div class="paper-links">
+                          
+                                <a href="#" class="paper-link">
+                                    <i class="fas fa-file-pdf"></i>
+                                    PDF
+                                </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Research Impact Section -->
+            <div class="research-impact">
+                <h3 class="impact-title">Research Impact</h3>
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <div class="impact-number">2</div>
+                        <div class="impact-label">Publications</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-number">3</div>
+                        <div class="impact-label">Research Areas</div>
+                    </div>
+                    <div class="impact-item">
+                        <div class="impact-number">1</div>
+                        <div class="impact-label">Active Projects</div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Research Interests -->
+            <div class="research-interests">
+                <h3 class="interests-title">Research Interests</h3>
+                <div class="interests-grid">
+                    <div class="interest-item">
+                        <i class="fas fa-brain"></i>
+                        <span>Advanced Machine Learning</span>
+                    </div>
+                    <div class="interest-item">
+                        <i class="fas fa-car"></i>
+                        <span>Autonomous Systems</span>
+                    </div>
+                    
+                    <div class="interest-item">
+                        <i class="fas fa-robot"></i>
+                        <span>Adaptive Control Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Citation Modal -->
+    <div id="citationModal" class="citation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Citation</h3>
+                <button class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="citation-tabs">
+                    <button class="tab-btn active" data-format="bibtex">BibTeX</button>
+                    <button class="tab-btn" data-format="apa">APA</button>
+                </div>
+                <div class="citation-content">
+                    <pre id="citationText" class="citation-text"></pre>
+                    <button class="copy-btn">
+                        <i class="far fa-copy"></i>
+                        Copy to Clipboard
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 <section id="experience" class="section">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-right">Work Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-up">
-                <h3 class="experience-title">Robotics Engineer, Intern</h3>
-                <p class="experience-company">Void Robotics, USA-Remote</p>
-                <p class="experience-duration">May - September 2023</p>
-                <ul class="experience-details">
-                    <li>Contributed to building an Operating system for autonomous transportation of robot using ROS2, Arduino and a GPS based navigation system.</li>
-                    <li>Enhanced the Real-Time Kinematic (RTK) GPS library by transitioning from version 2 to version 3, while also revising and adapting existing code syntaxes.</li>
-                    <li>Utilized GitHub Actions to orchestrate the building of ROS2 within Ubuntu 22.04 Docker image.</li>
-                    <li>Integrated the ROS 2 Nav2 framework along with the Spatio-Temporal Voxel Layer(STVL).</li>
-                </ul>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="experience-title">Open-Source Software Developer</h3>
-                <p class="experience-company">Deep Ivy, Unify AI</p>
-                <p class="experience-duration">2022</p>
-                <ul class="experience-details">
-                    <li>Reformatted old Python Machine Learning functions to comply with the Python array API standards.</li>
-                    <li>Created issues and sent pull requests after finding and fixing issues on the open-source ivy machine learning framework.</li>
-                </ul>
-            </div>
-
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="experience-title">Software Engineer - Data Science</h3>
-                <p class="experience-company">AmaliTech GmbH, Takoradi-Ghana</p>
-                <p class="experience-duration">2020 - 2022</p>
-                <ul class="experience-details">
-                    <li>Developed an LSTM and CNN combination model with OpenCV for video analysis.</li>
-                    <li>Developed object detection model with Yolov5 and PyTorch.</li>
-                    <li>Used Labelme image annotation for road lanes and object annotation.</li>
-                    <li>Performed sentiment analysis on app reviews using hugging face transformer library.</li>
-                    <li>Implemented Python's Google Play scraper for user review analysis.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- Award Section -->
-<section id="awards" class="section">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-right">Awards & Scholarships</h2>
+        <h2 class="section-title">Professional Experience</h2>
         
-        <!-- Citations -->
-        <h3 class="awards-subtitle" data-aos="fade-right">Citations & Honors</h3>
-        <div class="row mb-5">
-            <div class="col-lg-6">
-                <div class="award-item" data-aos="fade-up">
-                    <h3 class="award-title">Citation of Honor</h3>
-                    <p class="award-year">2018</p>
-                    <p>For remarkable initiative in initiating the formation of the robotics and design club, providing a platform for students to explore their passion for Robotics, CAD and engineering, MESA-UENR</p>
+        <div class="experience-timeline">
+            <!-- Void Robotics -->
+            <div class="experience-item" data-aos="fade-up">
+                <div class="experience-duration">
+                    <span class="date">May - September 2023</span>
+                    <span class="duration">5 months</span>
                 </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="award-item" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="award-title">Citation of Honor</h3>
-                    <p class="award-year">2018</p>
-                    <p>For insightful, dedicative attitude, skills and instrumental role in the parliamentary council and reinvention of the UENR SRC</p>
+                
+                <div class="experience-content">
+                    <div class="role-header">
+                        <div class="company-logo">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="role-info">
+                            <h3 class="role-title">Robotics Engineer, Intern</h3>
+                            <div class="company-name">
+                                <span>Void Robotics</span>
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> USA (Remote)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="responsibilities">
+                        <ul class="responsibility-list">
+                            <li>
+                                <div class="responsibility-content">
+                                    <h4>Autonomous Transportation System</h4>
+                                    <p>Contributed to building an Operating system for autonomous transportation of robot using ROS2, Arduino and a GPS based navigation system.</p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">ROS2</span>
+                                        <span class="tech-tag">Arduino</span>
+                                        <span class="tech-tag">GPS Navigation</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="responsibility-content">
+                                    <h4>RTK GPS Library Enhancement</h4>
+                                    <p>Enhanced the Real-Time Kinematic (RTK) GPS library by transitioning from version 2 to version 3, while also revising and adapting existing code syntaxes.</p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">RTK GPS</span>
+                                        <span class="tech-tag">SSH</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="responsibility-content">
+                                    <h4>CI/CD Implementation</h4>
+                                    <p>Utilized GitHub Actions to orchestrate the building of ROS2 within Ubuntu 22.04 Docker image.</p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">GitHub Actions</span>
+                                        <span class="tech-tag">Docker</span>
+                                        <span class="tech-tag">Ubuntu</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-6">
-                <div class="award-item" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="award-title">Winner</h3>
-                    <p class="award-year">2022</p>
-                    <p>Open Doors Russian Competition for Engineering and Technology</p>
+            <!-- Deep Ivy -->
+            <div class="experience-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="experience-duration">
+                    <span class="date">2022</span>
+                    <span class="duration">6 months</span>
                 </div>
-            </div>
-        </div>
+                
+                <div class="experience-content">
+                    <div class="role-header">
+                        <div class="company-logo">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="role-info">
+                            <h3 class="role-title">Open-Source Software Developer</h3>
+                            <div class="company-name">
+                                <span>Deep Ivy, Unify AI</span>
+                            </div>
+                        </div>
+                    </div>
 
-        <!-- Scholarships -->
-        <h3 class="awards-subtitle" data-aos="fade-right">Scholarships</h3>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="award-item scholarship-item" data-aos="fade-up">
-                    <h3 class="award-title">Newmont Ghana Scholarship</h3>
-                    <p class="award-year">2015-2019</p>
-                    <p>Awarded for needy but brilliant students</p>
+                    <div class="responsibilities">
+                        <ul class="responsibility-list">
+                            <li>
+                                <div class="responsibility-content">
+                                    <h4>Python API Standards Implementation</h4>
+                                    <p>Reformatted old Python Machine Learning functions to comply with the Python array API standards on the deep ivy framework.</p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">Python</span>
+                                        <span class="tech-tag">Machine Learning</span>
+                                        <span class="tech-tag">Array API</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="responsibility-content">
+                                    <h4>Framework Optimization</h4>
+                                    <p>Created issues and sent pull requests after finding and fixing issues on the open-source ivy machine learning framework.</p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">Git</span>
+                                        <span class="tech-tag">GitHub</span>
+                                        <span class="tech-tag">Code Review</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <div class="award-item scholarship-item" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="award-title">Russian Government Scholarship</h3>
-                    <p class="award-year">2022-2024</p>
-                    <p>Full scholarship for Master's studies at ITMO University</p>
+
+            <!-- AmaliTech -->
+            <div class="experience-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="experience-duration">
+                    <span class="date">2020 - 2022</span>
+                    <span class="duration">2 years</span>
+                </div>
+                
+                <div class="experience-content">
+                    <div class="role-header">
+                        <div class="company-logo">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="role-info">
+                            <h3 class="role-title">Software Engineer - Data Science</h3>
+                            <div class="company-name">
+                                <span>AmaliTech GmbH</span>
+                                <span class="location"><i class="fas fa-map-marker-alt"></i> Takoradi, Ghana</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="responsibilities">
+                        <ul class="responsibility-list">
+                            <li>
+                                <div class="responsibility-content">
+                                    <h4>Video Analysis System</h4>
+                                    <p>Developed an LSTM and CNN combination model with OpenCV for video analysis of rider behavior and road conditions.</p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">LSTM</span>
+                                        <span class="tech-tag">CNN</span>
+                                        <span class="tech-tag">OpenCV</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="responsibility-content">
+                                    <h4>Object Detection Implementation</h4>
+                                    <p>Developed object detection model with Yolov5 and PyTorch for identifying various objects on the driveway.</p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">YOLOv5</span>
+                                        <span class="tech-tag">PyTorch</span>
+                                        <span class="tech-tag">Computer Vision</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="responsibility-content">
+                                    <h4>Sentiment Analysis Project</h4>
+                                    <p>Implemented sentiment analysis on app reviews using hugging face transformer library and automated data collection using Google Play scraper.</p>
+                                    <div class="tech-used">
+                                        <span class="tech-tag">NLP</span>
+                                        <span class="tech-tag">Transformers</span>
+                                        <span class="tech-tag">Web Scraping</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Leadership Section -->
-<section id="leadership" class="section">
+
+
+<section id="honors" class="section">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-right">Leadership Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item" data-aos="fade-up">
-                <h3 class="leadership-title">President, MESA</h3>
-                <p class="leadership-year">September 2017 - September 2018</p>
-                <p>University of Energy and Natural Resources</p>
+        <!-- Awards & Scholarships -->
+        <h2 class="section-title">Honors & Recognition</h2>
+        
+        <div class="honors-grid">
+            <!-- Citations & Awards -->
+            <div class="honors-category">
+                <div class="category-header">
+                    <i class="fas fa-award"></i>
+                    <h3>Citations & Awards</h3>
+                </div>
+                <div class="honors-list">
+                    <div class="honor-card" data-aos="fade-up">
+                        <div class="honor-year">2022</div>
+                        <div class="honor-content">
+                            <h4>Winner</h4>
+                            <p>Open Doors Russian Competition for Engineering and Technology</p>
+                            <div class="honor-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="honor-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="honor-year">2018</div>
+                        <div class="honor-content">
+                            <h4>Citation of Honor</h4>
+                            <p>For remarkable initiative in initiating the formation of the robotics and design club, providing a platform for students to explore their passion for Robotics, CAD and engineering</p>
+                            <div class="honor-meta">MESA-UENR</div>
+                            <div class="honor-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="honor-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="honor-year">2018</div>
+                        <div class="honor-content">
+                            <h4>Citation of Honor</h4>
+                            <p>For insightful, dedicative attitude, skills and instrumental role in the parliamentary council and reinvention of the UENR SRC</p>
+                            <div class="honor-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="leadership-title">Member of Parliament, SRC</h3>
-                <p class="leadership-year">September 2017 - September 2018</p>
-                <p>University of Energy and Natural Resources</p>
+
+            <!-- Scholarships -->
+            <div class="honors-category">
+                <div class="category-header">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Scholarships</h3>
+                </div>
+                <div class="honors-list">
+                    <div class="honor-card scholarship" data-aos="fade-up">
+                        <div class="honor-year">2022-2024</div>
+                        <div class="honor-content">
+                            <h4>Russian Government Scholarship</h4>
+                            <p>Full scholarship for Master's studies at ITMO University</p>
+                            <div class="honor-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="honor-card scholarship" data-aos="fade-up" data-aos-delay="100">
+                        <div class="honor-year">2015-2019</div>
+                        <div class="honor-content">
+                            <h4>Newmont Ghana Scholarship</h4>
+                            <p>Awarded for needy but brilliant students</p>
+                            <div class="honor-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="leadership-title">Coordinator</h3>
-                <p class="leadership-year">September 2017 - September 2018</p>
-                <p>West African Institute of Mining, Metallurgy, and Petroleum</p>
+        </div>
+
+        <!-- Leadership Experience -->
+        <h2 class="section-title mt-5">Leadership Experience</h2>
+        <div class="leadership-timeline">
+            <div class="leadership-card" data-aos="fade-up">
+                <div class="role-period">Sep 2017 - Sep 2018</div>
+                <div class="role-content">
+                    <div class="role-header">
+                        <h4>President</h4>
+                        <span class="organization">MESA</span>
+                    </div>
+                    <div class="role-details">
+                        <p>University of Energy and Natural Resources</p>
+                        <div class="achievement-tags">
+                            <span class="achievement-tag">Leadership</span>
+                            <span class="achievement-tag">Event Management</span>
+                            <span class="achievement-tag">Team Building</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leadership-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="role-period">Sep 2017 - Sep 2018</div>
+                <div class="role-content">
+                    <div class="role-header">
+                        <h4>Member of Parliament</h4>
+                        <span class="organization">SRC</span>
+                    </div>
+                    <div class="role-details">
+                        <p>University of Energy and Natural Resources</p>
+                        <div class="achievement-tags">
+                            <span class="achievement-tag">Student Advocacy</span>
+                            <span class="achievement-tag">Policy Making</span>
+                            <span class="achievement-tag">Governance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="leadership-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="role-period">Sep 2017 - Sep 2018</div>
+                <div class="role-content">
+                    <div class="role-header">
+                        <h4>Coordinator</h4>
+                        <span class="organization">WAIMM</span>
+                    </div>
+                    <div class="role-details">
+                        <p>West African Institute of Mining, Metallurgy, and Petroleum</p>
+                        <div class="achievement-tags">
+                            <span class="achievement-tag">Project Management</span>
+                            <span class="achievement-tag">Coordination</span>
+                            <span class="achievement-tag">Industry Relations</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Skills Section -->
 <section id="skills" class="section">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-right">Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category" data-aos="fade-up">
-                <h3>Programming Languages</h3>
-                <div class="skill-list">
-                    <span class="skill-item">Python (Advanced)</span>
-                    <span class="skill-item">C++ (Intermediate)</span>
-                    <span class="skill-item">MATLAB (Intermediate)</span>
+        <h2 class="section-title">Technical Skills</h2>
+        
+        <!-- Programming Languages -->
+        <div class="skill-category">
+            <h3 class="category-title">
+                <i class="fas fa-code"></i>
+                Programming Languages
+            </h3>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">Python</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">C++</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item">
+                    <div class="skill-info">
+                        <span class="skill-name">MATLAB</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%"></div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
-                <h3>Frameworks & Libraries</h3>
-                <div class="skill-list">
-                    <span class="skill-item">PyTorch</span>
-                    <span class="skill-item">TensorFlow</span>
-                    <span class="skill-item">OpenCV</span>
-                    <span class="skill-item">Pandas</span>
-                    <span class="skill-item">Scikit-learn</span>
-                </div>
+        </div>
+
+        <!-- Frameworks and Libraries -->
+        <div class="skill-category">
+            <h3 class="category-title">
+                <i class="fas fa-layer-group"></i>
+                Frameworks & Libraries
+            </h3>
+            <div class="skills-grid">
+                <div class="skill-tag">PyTorch</div>
+                <div class="skill-tag">TensorFlow</div>
+                <div class="skill-tag">Scikit-learn</div>
+                <div class="skill-tag">OpenCV (Python & C++)</div>
+                <div class="skill-tag">Pandas</div>
+                <div class="skill-tag">Matplotlib</div>
+                <div class="skill-tag">Ivy</div>
+                <div class="skill-tag">Seaborn</div>
+                <div class="skill-tag">Jax</div>
+                <div class="skill-tag">NumPy</div>
+                <div class="skill-tag">SciPy</div>
+                <div class="skill-tag">SymPy</div>
             </div>
-            
-            <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
-                <h3>Tools & Platforms</h3>
-                <div class="skill-list">
-                    <span class="skill-item">ROS 1 & 2</span>
-                    <span class="skill-item">Git</span>
-                    <span class="skill-item">Docker</span>
-                    <span class="skill-item">Linux</span>
-                </div>
+        </div>
+
+        <!-- Development Tools -->
+        <div class="skill-category">
+            <h3 class="category-title">
+                <i class="fas fa-tools"></i>
+                Development Tools
+            </h3>
+            <div class="skills-grid">
+                <div class="skill-tag">Git</div>
+                <div class="skill-tag">Docker</div>
+                <div class="skill-tag">Bash</div>
+                <div class="skill-tag">Make (catkin, colcon)</div>
+            </div>
+        </div>
+
+        <!-- Robotics & Simulation -->
+        <div class="skill-category">
+            <h3 class="category-title">
+                <i class="fas fa-robot"></i>
+                Robotics & Simulation
+            </h3>
+            <div class="skills-grid">
+                <div class="skill-tag">ROS 1</div>
+                <div class="skill-tag">ROS 2</div>
+                <div class="skill-tag">SolidWorks</div>
+                <div class="skill-tag">Gazebo</div>
+                <div class="skill-tag">Simscape Multibody</div>
+                <div class="skill-tag">Coppeliasim</div>
+                <div class="skill-tag">PyBullet</div>
+            </div>
+        </div>
+
+        <!-- Operating Systems -->
+        <div class="skill-category">
+            <h3 class="category-title">
+                <i class="fas fa-desktop"></i>
+                Operating Systems
+            </h3>
+            <div class="skills-grid">
+                <div class="skill-tag">Linux</div>
+                <div class="skill-tag">Windows</div>
+            </div>
+        </div>
+
+        <!-- Languages -->
+        <div class="skill-category">
+            <h3 class="category-title">
+                <i class="fas fa-language"></i>
+                Languages
+            </h3>
+            <div class="skills-grid">
+                <div class="skill-tag">English (Native)</div>
+                <div class="skill-tag">French (Beginner)</div>
+                <div class="skill-tag">Russian (Beginner)</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Projects Section with improved layout -->
 <section id="projects" class="section">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-right">Featured Projects</h2>
-        <div class="project-grid">
-            <!-- Pin Insertion Project -->
-            <div class="project-card" data-aos="fade-up">
-                <h3 class="text-light mb-3">Pin Insertion Robot</h3>
-                <p class="mb-3">Simulation and training of UR5 robot for precise pin insertion using CoppeliaSim and catalyst-rl.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">CoppeliaSim</span>
-                    <span class="tech-tag">PyRep</span>
-                    <span class="tech-tag">Catalyst-rl</span>
-                    <span class="tech-tag">PyTorch</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Klins101/Peg-in-a-hole-insertion-using-DRL.git" class="btn btn-custom btn-sm" target="_blank">
-                        <i class="fab fa-github me-2"></i>View Code
-                    </a>
-                </div>
+    <div class="container projects-container">
+        <h2 class="section-title">Featured Projects</h2>
+        
+        <!-- Pin Insertion Project -->
+        <div class="project-card">
+            <h3 class="project-title">Pin Insertion Robot</h3>
+            <p class="project-description">Simulation and training of UR5 robot with RG2 gripper to accurately insert a pin into a hole using the CoppeliaSim simulator and catalyst-rl reinforcement library.</p>
+            <div class="tech-stack">
+                <span class="tech-tag">CoppeliaSim</span>
+                <span class="tech-tag">PyRep</span>
+                <span class="tech-tag">Catalyst-rl</span>
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Torchvision</span>
+                <span class="tech-tag">OpenCV</span>
             </div>
-
-            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                <h3 class="text-light mb-3">Telegram ChatGPT Bot</h3>
-                <p class="mb-3">AI-powered chatbot providing accurate responses to a wide range of queries using OpenAI's ChatGPT model.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">OpenAI API</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://t.me/AI_tjr_bot" class="btn btn-custom btn-sm" target="_blank">
-                        <i class="fas fa-robot me-2"></i>Try Bot
-                    </a>
-                </div>
+            <div class="project-links">
+                <a href="https://github.com/Klins101/Peg-in-a-hole-insertion-using-DRL.git" class="btn-view-code" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
             </div>
-
-            <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="text-light mb-3">Line Following Robot</h3>
-                <p class="mb-3">Quadcopter system designed to follow lines and navigate through rings using ROS1.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">ROS 1</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">OpenCV</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Klins101/Pick-and-Place-Robot-with-kuka-arm-and-moveit" class="btn btn-custom btn-sm" target="_blank">
-                        <i class="fab fa-github me-2"></i>View Code
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                <h3 class="text-light mb-3">Snake Game AI</h3>
-                <p class="mb-3">Developing and training an Intelligent Agent to Master the Snake Game through Reinforcement Learning.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">Pygame</span>
-                    <span class="tech-tag">DQ Learning</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Klins101/Snake-Game-With-Reinforcement-Learning" class="btn btn-custom btn-sm" target="_blank">
-                        <i class="fab fa-github me-2"></i>View Code
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                <h3 class="text-light mb-3">PPR Robot Control</h3>
-                <p class="mb-3">Implementation of PID, Hybrid and Impedance control for a PPR Robot using advanced control theories.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">MATLAB</span>
-                    <span class="tech-tag">Simulink</span>
-                    <span class="tech-tag">Simscape</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://github.com/Klins101/Hybrid-and-Impedance-control-of-a-PPR-manipulator" class="btn btn-custom btn-sm" target="_blank">
-                        <i class="fab fa-github me-2"></i>View Code
-                    </a>
-                </div>
-            </div>
-
-            <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-                <h3 class="text-light mb-3">Emika Panda Robot Training</h3>
-                <p class="mb-3">Training 7 DOF Emika Panda robot using Stable Baselines RL Algorithm.</p>
-                <div class="tech-stack">
-                    <span class="tech-tag">Python</span>
-                    <span class="tech-tag">PPO</span>
-                    <span class="tech-tag">SAC</span>
-                </div>
-                <div class="project-links">
-                    <a href="https://colab.research.google.com/drive/1wEEzN82J8g3FHpaIglSIB_WOT4qIGJPm?usp=sharing" class="btn btn-custom btn-sm" target="_blank">
-                        <i class="fab fa-google me-2"></i>View Colab
-                    </a>
-                </div>
-            </div>
-            
         </div>
+
+        <!-- AI Chatbot Project -->
+        <div class="project-card">
+            <h3 class="project-title">Telegram ChatGPT Bot</h3>
+            <p class="project-description">AI-powered chatbot providing accurate responses to a wide range of queries using OpenAI's ChatGPT model. The bot utilizes PostgreSQL for data management and provides human-like responses to user queries.</p>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">OpenAI API</span>
+                <span class="tech-tag">Telegram API</span>
+            </div>
+            <div class="project-links">
+                <a href="https://t.me/AI_tjr_bot" class="btn-try-bot" target="_blank">
+                    <i class="fas fa-robot"></i> Try Bot
+                </a>
+            </div>
+        </div>
+
+        <!-- Robotic Manipulation Project -->
+        <div class="project-card">
+            <h3 class="project-title">Robotic Manipulation - Pick and Place Task</h3>
+            <p class="project-description">Implementation of robotic manipulation using ROS1 and MoveIt. Focuses on advanced concepts including rotation matrices, Euler angles, quaternions, and Denavit-Hartenberg parameters for precise robot control.</p>
+            <div class="tech-stack">
+                <span class="tech-tag">ROS 1</span>
+                <span class="tech-tag">MoveIt</span>
+                <span class="tech-tag">Gazebo</span>
+                <span class="tech-tag">rviz</span>
+                <span class="tech-tag">Gazebo Grasp Plugin</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Klins101/Pick-and-Place-Robot-with-kuka-arm-and-moveit" class="btn-view-code" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Line Following Robot -->
+        <div class="project-card">
+            <h3 class="project-title">Line Following Quadcopter</h3>
+            <p class="project-description">Development of a quadcopter system that autonomously follows lines and navigates through rings in its path using computer vision and path planning algorithms.</p>
+            <div class="tech-stack">
+                <span class="tech-tag">ROS 1</span>
+                <span class="tech-tag">Docker</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">Python</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Klins101/Pick-and-Place-Robot-with-kuka-arm-and-moveit" class="btn-view-code" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Optimization Project -->
+        <div class="project-card">
+            <h3 class="project-title">3D Function Optimization</h3>
+            <p class="project-description">Implementation of various optimization techniques for three-dimensional functions using MATLAB's Global Optimization Toolbox, including genetic algorithms, simulated annealing, particle swarm, and surrogate algorithms.</p>
+            <div class="tech-stack">
+                <span class="tech-tag">MATLAB</span>
+                <span class="tech-tag">Global Optimization Toolbox</span>
+                <span class="tech-tag">Genetic Algorithm</span>
+                <span class="tech-tag">Particle Swarm</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Klins101/Global-Optimization" class="btn-view-code" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Snake Game AI -->
+        <div class="project-card">
+            <h3 class="project-title">Snake Game AI</h3>
+            <p class="project-description">Development of an intelligent agent using reinforcement learning to master the Snake Game. Implements DQ learning algorithms for optimal gameplay strategies.</p>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pygame</span>
+                <span class="tech-tag">Reinforcement Learning</span>
+                <span class="tech-tag">DQ Learning</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Klins101/Snake-Game-With-Reinforcement-Learning" class="btn-view-code" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- PPR Robot Control -->
+        <div class="project-card">
+            <h3 class="project-title">PPR Robot Control System</h3>
+            <p class="project-description">Implementation of PID, Hybrid, and Impedance control for a PPR Robot. Includes forward and inverse kinematics, contact modeling, and advanced control theories.</p>
+            <div class="tech-stack">
+                <span class="tech-tag">MATLAB</span>
+                <span class="tech-tag">Simulink</span>
+                <span class="tech-tag">Simscape Multibody</span>
+                <span class="tech-tag">Control Systems</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/Klins101/Hybrid-and-Impedance-control-of-a-PPR-manipulator" class="btn-view-code" target="_blank">
+                    <i class="fab fa-github"></i> View Code
+                </a>
+            </div>
+        </div>
+
+        <!-- Emika Panda Robot -->
+        <div class="project-card">
+            <h3 class="project-title">Emika Panda Robot Training</h3>
+            <p class="project-description">Training implementation for the 7 DOF Emika Panda robot using the Stable Baselines RL Algorithm from Hugging Face, utilizing PPO and SAC approaches.</p>
+            <div class="tech-stack">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">PPO</span>
+                <span class="tech-tag">SAC</span>
+                <span class="tech-tag">Stable Baselines</span>
+                <span class="tech-tag">Hugging Face</span>
+            </div>
+            <div class="project-links">
+                <a href="https://colab.research.google.com/drive/1wEEzN82J8g3FHpaIglSIB_WOT4qIGJPm?usp=sharing" class="btn-view-code" target="_blank">
+                    <i class="fab fa-google"></i> View Colab
+                </a>
+            </div>
+        </div>
+
     </div>
 </section>
-
 
 
 

@@ -1,4 +1,3 @@
-// Particle animation
 function createParticle() {
     const particle = document.createElement('div');
     particle.className = 'particle';
@@ -11,6 +10,9 @@ function createParticle() {
     // Random position
     particle.style.left = `${Math.random() * 100}vw`;
     particle.style.top = `${Math.random() * 100}vh`;
+    
+    // Set lighter color for particles
+    particle.style.backgroundColor = 'rgba(37, 99, 235, 0.1)';
     
     document.body.appendChild(particle);
     
@@ -29,11 +31,141 @@ function createParticle() {
     };
 }
 
-// Create initial particles
-for (let i = 0; i < 30; i++) {
-    createParticle();
-}
 
+// Filter research papers by year
+const initializeResearchFilters = () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const papers = document.querySelectorAll('.research-paper');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Filter papers
+            const filterValue = button.getAttribute('data-filter');
+            
+            papers.forEach(paper => {
+                const paperYear = paper.getAttribute('data-year');
+                if (filterValue === 'all' || filterValue === paperYear) {
+                    paper.style.display = 'block';
+                    paper.style.opacity = '0';
+                    setTimeout(() => {
+                        paper.style.opacity = '1';
+                    }, 100);
+                } else {
+                    paper.style.display = 'none';
+                }
+            });
+        });
+    });
+};
+
+// Animate research papers when they come into view
+const animateResearchPapers = () => {
+    const papers = document.querySelectorAll('.research-paper');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+    
+    papers.forEach(paper => {
+        paper.style.opacity = '0';
+        paper.style.transform = 'translateY(20px)';
+        paper.style.transition = 'all 0.6s ease-out';
+        observer.observe(paper);
+    });
+};
+
+// Initialize when document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeResearchFilters();
+    animateResearchPapers();
+});
+
+// Citation Modal Functionality
+const initializeCitationSystem = () => {
+    const modal = document.getElementById('citationModal');
+    const citeLinks = document.querySelectorAll('.cite-link');
+    const closeBtn = document.querySelector('.close-modal');
+    const copyBtn = document.querySelector('.copy-btn');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const citationText = document.getElementById('citationText');
+    let currentCitation = null;
+
+    // Open modal with citation
+    citeLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentCitation = {
+                bibtex: link.getAttribute('data-bibtex'),
+                apa: link.getAttribute('data-apa')
+            };
+            citationText.textContent = currentCitation.bibtex;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close modal
+    const closeModal = () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = '';
+        copyBtn.textContent = 'Copy to Clipboard';
+        copyBtn.classList.remove('copied');
+    };
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Tab switching
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const format = btn.getAttribute('data-format');
+            citationText.textContent = currentCitation[format];
+        });
+    });
+
+    // Copy to clipboard
+    copyBtn.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(citationText.textContent);
+            copyBtn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+                copyBtn.innerHTML = '<i class="far fa-copy"></i> Copy to Clipboard';
+                copyBtn.classList.remove('copied');
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy text: ', err);
+        }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+};
+
+// Initialize when document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeCitationSystem();
+});
 
 
 // Add scroll-triggered animations for skill items
