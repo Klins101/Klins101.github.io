@@ -26,6 +26,54 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// Navigation functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    // Create overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.appendChild(overlay);
+
+    // Toggle mobile menu
+    function toggleMenu() {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('show');
+        overlay.classList.toggle('show');
+        document.body.classList.toggle('nav-open');
+    }
+
+    // Event listeners
+    navToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    // Close menu when clicking overlay
+    overlay.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking menu links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            toggleMenu();
+        });
+    });
+
+    // Close menu when pressing Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+            toggleMenu();
+        }
+    });
+
+    // Prevent menu from closing when clicking inside it
+    navMenu.addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+});
+
 // Theme toggle functionality
 let isDark = true;
 const themeToggle = document.createElement('button');

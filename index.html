@@ -34,11 +34,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="css/variables.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="css/variables.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    
+    
 </head>
 <body>
 <!-- Navigation -->
@@ -48,28 +45,30 @@
             <span class="logo-text">KA</span>
         </a>
         
-        <div class="nav-toggle" id="navToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
 
-        <div class="nav-links">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#education" class="nav-link">Education</a>
-            <a href="#skills" class="nav-link">Skills</a>
-            <a href="#research" class="nav-link">Research</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </div>
+        <div class="nav-menu" id="navMenu">
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
 
-        <div class="nav-social">
-            <a href="https://github.com/Klins101" target="_blank" class="social-icon">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/klinsmann-agyei-862396239/" target="_blank" class="social-icon">
-                <i class="fab fa-linkedin"></i>
-            </a>
+            <div class="nav-social">
+                <a href="https://github.com/Klins101" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/klinsmann-agyei-862396239/" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
         </div>
     </div>
 </nav>
@@ -166,11 +165,11 @@
                     <!-- CORALL PNG -->
                     <picture class="grid-img-wrapper">
                         <source 
-                            srcset="img/corall.png" 
+                            srcset="img/corall.gif" 
                             type="image/png"
                         >
                         <img 
-                            src="img/corall.png" 
+                            src="img/corall.gif" 
                             alt="CORALL Project" 
                             class="grid-img"
                             loading="lazy"
@@ -595,7 +594,7 @@
         
         <div class="experience-timeline">
             <!-- Void Robotics -->
-            <div class="experience-item" data-aos="fade-up">
+            <div class="experience-item">
                 <div class="experience-duration">
                     <span class="date">May - September 2023</span>
                     <span class="duration">5 months</span>
@@ -655,7 +654,7 @@
             </div>
 
             <!-- Deep Ivy -->
-            <div class="experience-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="experience-item" >
                 <div class="experience-duration">
                     <span class="date">2022</span>
                     <span class="duration">6 months</span>
@@ -704,7 +703,7 @@
             </div>
 
             <!-- AmaliTech -->
-            <div class="experience-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="experience-item">
                 <div class="experience-duration">
                     <span class="date">2020 - 2022</span>
                     <span class="duration">2 years</span>
@@ -782,7 +781,7 @@
                     <h3>Citations & Awards</h3>
                 </div>
                 <div class="honors-list">
-                    <div class="honor-card" data-aos="fade-up">
+                    <div class="honor-card">
                         <div class="honor-year">2022</div>
                         <div class="honor-content">
                             <h4>Winner</h4>
@@ -793,7 +792,7 @@
                         </div>
                     </div>
 
-                    <div class="honor-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="honor-card">
                         <div class="honor-year">2018</div>
                         <div class="honor-content">
                             <h4>Citation of Honor</h4>
@@ -805,7 +804,7 @@
                         </div>
                     </div>
 
-                    <div class="honor-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="honor-card">
                         <div class="honor-year">2018</div>
                         <div class="honor-content">
                             <h4>Citation of Honor</h4>
@@ -825,7 +824,7 @@
                     <h3>Scholarships</h3>
                 </div>
                 <div class="honors-list">
-                    <div class="honor-card scholarship" data-aos="fade-up">
+                    <div class="honor-card scholarship">
                         <div class="honor-year">2022-2024</div>
                         <div class="honor-content">
                             <h4>Russian Government Scholarship</h4>
@@ -836,7 +835,7 @@
                         </div>
                     </div>
 
-                    <div class="honor-card scholarship" data-aos="fade-up" data-aos-delay="100">
+                    <div class="honor-card scholarship" >
                         <div class="honor-year">2015-2019</div>
                         <div class="honor-content">
                             <h4>Newmont Ghana Scholarship</h4>
@@ -853,7 +852,7 @@
         <!-- Leadership Experience -->
         <h2 class="section-title mt-5">Leadership Experience</h2>
         <div class="leadership-timeline">
-            <div class="leadership-card" data-aos="fade-up">
+            <div class="leadership-card">
                 <div class="role-period">Sep 2017 - Sep 2018</div>
                 <div class="role-content">
                     <div class="role-header">
@@ -871,7 +870,7 @@
                 </div>
             </div>
 
-            <div class="leadership-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="leadership-card">
                 <div class="role-period">Sep 2017 - Sep 2018</div>
                 <div class="role-content">
                     <div class="role-header">
@@ -889,7 +888,7 @@
                 </div>
             </div>
 
-            <div class="leadership-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="leadership-card">
                 <div class="role-period">Sep 2017 - Sep 2018</div>
                 <div class="role-content">
                     <div class="role-header">
@@ -1185,9 +1184,9 @@
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container text-center">
-            <h2 class="section-title text-center" data-aos="fade-up">Get In Touch</h2>
-            <p class="mb-4" data-aos="fade-up">Feel free to reach out for collaborations or just a friendly chat</p>
-            <div class="social-links" data-aos="fade-up">
+            <h2 class="section-title text-center">Get In Touch</h2>
+            <p class="mb-4">Feel free to reach out for collaborations or just a friendly chat</p>
+            <div class="social-links">
                 <a href="https://github.com/Klins101" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/klinsmann-agyei-862396239/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:klinsmannjurgenagyei@gamil.com"><i class="fas fa-envelope"></i></a>

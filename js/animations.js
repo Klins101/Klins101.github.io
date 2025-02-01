@@ -355,3 +355,63 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Filter research papers by year
+const initializeResearchFilters = () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const papers = document.querySelectorAll('.research-paper');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            // Filter papers
+            const filterValue = button.getAttribute('data-filter');
+            
+            papers.forEach(paper => {
+                const paperYear = paper.getAttribute('data-year');
+                if (filterValue === 'all' || filterValue === paperYear) {
+                    paper.style.display = 'block';
+                    paper.style.opacity = '0';
+                    setTimeout(() => {
+                        paper.style.opacity = '1';
+                    }, 100);
+                } else {
+                    paper.style.display = 'none';
+                }
+            });
+        });
+    });
+};
+
+// Animate research papers when they come into view
+const animateResearchPapers = () => {
+    const papers = document.querySelectorAll('.research-paper');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+    
+    papers.forEach(paper => {
+        paper.style.opacity = '0';
+        paper.style.transform = 'translateY(20px)';
+        paper.style.transition = 'all 0.6s ease-out';
+        observer.observe(paper);
+    });
+};
+
+// Initialize when document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initializeResearchFilters();
+    animateResearchPapers();
+});
