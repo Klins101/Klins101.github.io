@@ -76,6 +76,99 @@
             background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
         }
 
+        /* Community Section */
+        .community-section {
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0f0f0f 0%, var(--black) 100%);
+        }
+
+        .community-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('h3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.15;
+            filter: sepia(0.3) contrast(1.2);
+        }
+
+        .community-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(212, 175, 55, 0.1) 50%, rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        .community-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .community-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .community-subtitle {
+            font-size: 1.5rem;
+            color: var(--gold-light);
+            font-style: italic;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .community-text {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .community-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            font-style: italic;
+            position: relative;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .community-quote::before,
+        .community-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .community-quote::before {
+            top: -10px;
+            left: -20px;
+        }
+
+        .community-quote::after {
+            bottom: -40px;
+            right: -20px;
+        }
+
         .hero-container {
             text-align: center;
             z-index: 10;
@@ -85,87 +178,23 @@
 
         /* Anniversary Logo */
         .anniversary-logo {
-            width: 350px;
-            height: 350px;
+            width: 400px;
+            height: 400px;
             margin: 0 auto 3rem;
             position: relative;
             filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.3));
+            animation: float 6s ease-in-out infinite;
         }
 
-        .logo-ring {
-            position: absolute;
-            border: 3px solid var(--gold);
-            border-radius: 50%;
-            opacity: 0.8;
-        }
-
-        .logo-ring:nth-child(1) {
+        .anniversary-logo img {
             width: 100%;
             height: 100%;
-            animation: pulse 3s ease-in-out infinite;
+            object-fit: contain;
         }
 
-        .logo-ring:nth-child(2) {
-            width: 85%;
-            height: 85%;
-            top: 7.5%;
-            left: 7.5%;
-            animation: pulse 3s ease-in-out infinite 0.5s;
-        }
-
-        .logo-ring:nth-child(3) {
-            width: 70%;
-            height: 70%;
-            top: 15%;
-            left: 15%;
-            animation: rotate-slow 20s linear infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.05); opacity: 1; }
-        }
-
-        @keyframes rotate-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .logo-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
-        .logo-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 120px;
-            font-weight: 900;
-            color: var(--gold);
-            line-height: 1;
-            background: linear-gradient(45deg, var(--gold-dark), var(--gold-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
-        }
-
-        .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            color: var(--gold);
-            font-style: italic;
-            margin-top: -10px;
-        }
-
-        .logo-anniversary {
-            font-family: 'Poppins', sans-serif;
-            font-size: 18px;
-            letter-spacing: 8px;
-            color: var(--gold);
-            margin-top: 10px;
-            font-weight: 300;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
         }
 
         /* Hero Content */
@@ -472,11 +501,23 @@
         }
 
         .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            opacity: 0.6;
+            filter: grayscale(0.5);
+            transition: all 0.3s ease;
+        }
+
+        .footer-logo:hover {
             opacity: 0.8;
+            filter: grayscale(0);
+        }
+
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .footer-text {
@@ -535,12 +576,8 @@
             }
 
             .anniversary-logo {
-                width: 280px;
-                height: 280px;
-            }
-
-            .logo-number {
-                font-size: 90px;
+                width: 300px;
+                height: 300px;
             }
 
             .timeline-line {
@@ -561,21 +598,92 @@
             }
         }
 
+        /* Mobile Optimizations */
         @media (max-width: 576px) {
             .church-name {
                 font-size: 2rem;
+                letter-spacing: 1px;
+            }
+
+            .anniversary-logo {
+                width: 250px;
+                height: 250px;
             }
 
             .celebration-text {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
 
             .event-card {
-                padding: 2rem;
+                padding: 1.5rem;
+            }
+
+            .event-info h3 {
+                font-size: 1.8rem;
+            }
+
+            .event-detail {
+                font-size: 1rem;
+                margin: 1rem 0;
             }
 
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .time-badge {
+                font-size: 1rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .timeline-title {
+                font-size: 1.3rem;
+            }
+
+            .timeline-presenter {
+                font-size: 1rem;
+            }
+
+            .special-section {
+                padding: 1rem;
+            }
+
+            .special-section h4 {
+                font-size: 1.2rem;
+            }
+
+            .special-list li {
+                padding: 0.5rem 0;
+                font-size: 0.9rem;
+            }
+
+            .special-list small {
+                font-size: 0.8rem;
+            }
+
+            .gallery-title {
+                font-size: 2rem;
+            }
+
+            .community-title {
+                font-size: 2rem;
+            }
+
+            .footer-logo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .footer-text {
+                font-size: 1rem;
             }
         }
     </style>
@@ -589,18 +697,11 @@
         <div class="hero-container">
             <!-- Anniversary Logo -->
             <div class="anniversary-logo">
-                <div class="logo-ring"></div>
-                <div class="logo-ring"></div>
-                <div class="logo-ring"></div>
-                <div class="logo-content">
-                    <div class="logo-number">5</div>
-                    <div class="logo-text">Years</div>
-                    <div class="logo-anniversary">ANNIVERSARY</div>
-                </div>
+                <img src="image.png" alt="High Praise Chapel 5 Years Anniversary">
             </div>
 
             <h1 class="church-name">High Praise Chapel</h1>
-            <p class="celebration-text">Celebrating God's Faithfulness</p>
+            <p class="celebration-text">God's Faithfulness</p>
 
             <div class="event-card">
                 <div class="event-info">
@@ -611,7 +712,7 @@
                     </div>
                     <div class="event-detail">
                         <i class="fas fa-clock"></i>
-                        <span>3:00 PM - 6:30 PM</span>
+                        <span>3:00 PM prompt</span>
                     </div>
                     <div class="event-detail">
                         <i class="fas fa-map-marker-alt"></i>
@@ -666,8 +767,8 @@
                     <div class="timeline-node"></div>
                     <div class="timeline-content">
                         <div class="time-badge">3:35 PM</div>
-                        <h3 class="timeline-title">Introduction of Dignitaries</h3>
-                        <p class="timeline-presenter">Ps Michael Boakye</p>
+                        <h3 class="timeline-title">Introduction</h3>
+                        <p class="timeline-presenter">Senior Clergy & Leaders<br><small>Ps Michael Boakye</small></p>
                     </div>
                 </div>
 
@@ -693,13 +794,13 @@
                     <div class="timeline-node"></div>
                     <div class="timeline-content">
                         <div class="time-badge">3:50 PM</div>
-                        <h3 class="timeline-title">Special Presentations</h3>
+                        <h3 class="timeline-title">Presentations</h3>
                         <div class="special-section">
-                            <h4>Celebrating Our Community</h4>
+                           
                             <ul class="special-list">
-                                <li>Spoken Word Performance<small>Stephen Igweh Jnr.</small></li>
-                                <li>HPC Super Child Fellowship<small>Children's Presentation</small></li>
-                                <li>HPC Youth Fellowship<small>Zodash Dance Crew Performance</small></li>
+                                <li>Spoken Word<small>Stephen Igweh Jnr.</small></li>
+                                <li>Children's Ministry<small>HPC Super Child Fellowship</small></li>
+                                <li>Youth Dance<small>Zodash Dance Crew</small></li>
                             </ul>
                         </div>
                     </div>
@@ -713,11 +814,11 @@
                         <div class="special-section">
                             <h4>Guest Speakers</h4>
                             <ul class="special-list">
-                                <li>Mr Frank Arko-Tharkor<small>Founder, Arko-Tharkor Group, Property Developers</small></li>
+                                <li>Mr Frank Arko-Tharkor<small>Arko-Tharkor Group</small></li>
                                 <li>Rev. Fredrick Hagan<small>Founder, Edutalk UK</small></li>
-                                <li>Mr Steven Odeyemi<small>Operations Manager, National Probation Service, West London</small></li>
-                                <li>Dr Zumbi Elvis Musiba<small>Expert in Occupational Health & Community Sustainability</small></li>
-                                <li>Testimonies & Video Greetings<small>Special Messages from Around the World</small></li>
+                                <li>Mr Steven Odeyemi<small>National Probation Service</small></li>
+                                <li>Dr Zumbi Elvis Musiba<small>Community Development Expert</small></li>
+                                <li>Testimonies<small>Video Greetings</small></li>
                             </ul>
                         </div>
                     </div>
@@ -727,7 +828,7 @@
                     <div class="timeline-node"></div>
                     <div class="timeline-content">
                         <div class="time-badge">4:50 PM</div>
-                        <h3 class="timeline-title">Ministration</h3>
+                        <h3 class="timeline-title">Offering/Giving</h3>
                         <p class="timeline-presenter">Apt. Benjamin Ashong</p>
                     </div>
                 </div>
@@ -745,8 +846,8 @@
                     <div class="timeline-node"></div>
                     <div class="timeline-content">
                         <div class="time-badge">5:10 PM</div>
-                        <h3 class="timeline-title">Mayoral Address</h3>
-                        <p class="timeline-presenter">The Worshipful Mayor of Barnet<br>Councillor Danny Rich</p>
+                        <h3 class="timeline-title">Mayor's Address</h3>
+                        <p class="timeline-presenter">Councillor Danny Rich<br><small>Mayor of Barnet</small></p>
                     </div>
                 </div>
 
@@ -772,8 +873,8 @@
                     <div class="timeline-node"></div>
                     <div class="timeline-content">
                         <div class="time-badge">5:50 PM</div>
-                        <h3 class="timeline-title">Anniversary Cake Cutting</h3>
-                        <p class="timeline-presenter">Ps Simeon, HPC & Dr Gospel Odame-Kentoe</p>
+                        <h3 class="timeline-title">Cake Cutting</h3>
+                        <p class="timeline-presenter">Ps Simeon, HPC Leaders & Dr Gospel</p>
                     </div>
                 </div>
 
@@ -799,21 +900,25 @@
                     <div class="timeline-node"></div>
                     <div class="timeline-content">
                         <div class="time-badge">6:25 PM</div>
-                        <h3 class="timeline-title">Fellowship & Refreshments</h3>
-                        <p class="timeline-presenter">Video Greetings • Photos • Networking</p>
+                        <h3 class="timeline-title">Fellowship</h3>
+                        <p class="timeline-presenter">Refreshments • Photos • Networking</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <h3 class="footer-logo">HPC</h3>
-            <p class="footer-text">High Praise Chapel • 5 Years of Grace</p>
+            <div class="footer-logo">
+                <img src="image.png" alt="HPC Anniversary Logo">
+            </div>
+            <p class="footer-text">High Praise Chapel • Elim City</p>
             <div class="footer-divider"></div>
-            <p class="footer-text">June 28, 2025 • 3:00 PM</p>
+            <p class="footer-text">5 Years of Grace • June 28, 2025</p>
         </div>
     </footer>
 
