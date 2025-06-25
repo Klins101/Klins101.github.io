@@ -1,1604 +1,920 @@
-<template>
-  <div class="page-content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Praise Chapel - 5th Anniversary Celebration</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4e5a3;
+            --gold-dark: #b8941f;
+            --black: #0a0a0a;
+            --gray: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--black);
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .floating-particle {
+            position: absolute;
+            background: var(--gold);
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float-up 20s infinite linear;
+        }
+
+        @keyframes float-up {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+            }
+            90% {
+                opacity: 0.1;
+            }
+            to {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+        }
+
+        .hero-container {
+            text-align: center;
+            z-index: 10;
+            max-width: 1000px;
+            padding: 2rem;
+        }
+
+        /* Anniversary Logo */
+        .anniversary-logo {
+            width: 350px;
+            height: 350px;
+            margin: 0 auto 3rem;
+            position: relative;
+            filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.3));
+        }
+
+        .logo-ring {
+            position: absolute;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            opacity: 0.8;
+        }
+
+        .logo-ring:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .logo-ring:nth-child(2) {
+            width: 85%;
+            height: 85%;
+            top: 7.5%;
+            left: 7.5%;
+            animation: pulse 3s ease-in-out infinite 0.5s;
+        }
+
+        .logo-ring:nth-child(3) {
+            width: 70%;
+            height: 70%;
+            top: 15%;
+            left: 15%;
+            animation: rotate-slow 20s linear infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .logo-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .logo-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 120px;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+            background: linear-gradient(45deg, var(--gold-dark), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.5));
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--gold);
+            font-style: italic;
+            margin-top: -10px;
+        }
+
+        .logo-anniversary {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            letter-spacing: 8px;
+            color: var(--gold);
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        /* Hero Content */
+        .church-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .celebration-text {
+            font-size: 1.8rem;
+            color: var(--gold-light);
+            font-weight: 300;
+            margin-bottom: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            animation: rotate-slow 30s linear infinite;
+        }
+
+        .event-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .event-info h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+            font-size: 1.3rem;
+            gap: 1rem;
+        }
+
+        .event-detail i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        /* Program Section */
+        .program-section {
+            padding: 8rem 0;
+            background: linear-gradient(180deg, var(--black) 0%, #0f0f0f 50%, var(--black) 100%);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+        }
+
+        .decorative-line {
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 2rem auto;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--gold), rgba(212, 175, 55, 0.1));
+            opacity: 0.3;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 3rem 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-node {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 30px;
+            height: 30px;
+            background: var(--black);
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            z-index: 10;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .timeline-node::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(26, 26, 26, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .timeline-content:hover::before {
+            transform: translateX(0);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .timeline-presenter {
+            color: var(--gold-light);
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .special-section {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .special-section h4 {
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .special-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .special-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+        }
+
+        .special-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .special-list small {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            margin-top: 0.3rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 5rem 0;
+            background: linear-gradient(180deg, var(--black), #000);
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 1px;
+            background: var(--gold);
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-divider {
+            width: 100px;
+            height: 1px;
+            background: var(--gold);
+            margin: 2rem auto;
+            opacity: 0.5;
+        }
+
+        /* Scroll Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            z-index: 1000;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .scroll-top i {
+            color: var(--black);
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .church-name {
+                font-size: 3rem;
+            }
+
+            .anniversary-logo {
+                width: 280px;
+                height: 280px;
+            }
+
+            .logo-number {
+                font-size: 90px;
+            }
+
+            .timeline-line {
+                left: 40px;
+            }
+
+            .timeline-node {
+                left: 40px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 100px);
+                margin-left: 80px !important;
+            }
+
+            .timeline-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .church-name {
+                font-size: 2rem;
+            }
+
+            .celebration-text {
+                font-size: 1.3rem;
+            }
+
+            .event-card {
+                padding: 2rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation" id="bgAnimation"></div>
+
     <!-- Hero Section -->
-    <div class="media-hero">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <h1 class="display-4 mb-4 text-white">Media Center</h1>
-            <p class="lead mb-4 text-white">Watch, listen, and be inspired by our sermons, worship sessions, and spiritual content that will strengthen your faith journey</p>
-            <div class="hero-stats">
-              <div class="stat-item">
-                <i class="fas fa-video"></i>
-                <span>100+ Sermons</span>
-              </div>
-              <div class="stat-item">
-                <i class="fas fa-calendar"></i>
-                <span>Weekly Services</span>
-              </div>
-              <div class="stat-item">
-                <i class="fas fa-images"></i>
-                <span>Photo Gallery</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="hero-image-wrapper">
-              <img src="http://localhost:8000/uploads/gallery/vol7.jpg" alt="Media Center" class="img-fluid rounded-4 shadow-lg">
-              <div class="image-overlay">
-                <div class="overlay-content">
-                  <i class="fas fa-play fa-3x text-white mb-3"></i>
-                  <h5 class="text-white">Watch & Listen</h5>
+    <section class="hero-section">
+        <div class="hero-container">
+            <!-- Anniversary Logo -->
+            <div class="anniversary-logo">
+                <div class="logo-ring"></div>
+                <div class="logo-ring"></div>
+                <div class="logo-ring"></div>
+                <div class="logo-content">
+                    <div class="logo-number">5</div>
+                    <div class="logo-text">Years</div>
+                    <div class="logo-anniversary">ANNIVERSARY</div>
                 </div>
-              </div>
             </div>
-          </div>
+
+            <h1 class="church-name">High Praise Chapel</h1>
+            <p class="celebration-text">Celebrating God's Faithfulness</p>
+
+            <div class="event-card">
+                <div class="event-info">
+                    <h3>Anniversary Service</h3>
+                    <div class="event-detail">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Saturday, 28th June 2025</span>
+                    </div>
+                    <div class="event-detail">
+                        <i class="fas fa-clock"></i>
+                        <span>3:00 PM - 6:30 PM</span>
+                    </div>
+                    <div class="event-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>High Praise Chapel</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Program Section -->
+    <section class="program-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Programme Outline</h2>
+                <div class="decorative-line"></div>
+                <p class="section-subtitle">An afternoon of worship, celebration, and thanksgiving</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+
+                <!-- Timeline Items -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">3:00 PM</div>
+                        <h3 class="timeline-title">Opening Prayer</h3>
+                        <p class="timeline-presenter">Ps Regina Kumi / Ps Janet</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">3:05 PM</div>
+                        <h3 class="timeline-title">Songs of Praise</h3>
+                        <p class="timeline-presenter">HPC Band</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">3:30 PM</div>
+                        <h3 class="timeline-title">Welcome & Greetings</h3>
+                        <p class="timeline-presenter">Ps Janet Odame</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">3:35 PM</div>
+                        <h3 class="timeline-title">Introduction of Dignitaries</h3>
+                        <p class="timeline-presenter">Ps Michael Boakye</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">3:40 PM</div>
+                        <h3 class="timeline-title">Musical Performance</h3>
+                        <p class="timeline-presenter">Mr Kunda Jones</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">3:45 PM</div>
+                        <h3 class="timeline-title">Musical Performance</h3>
+                        <p class="timeline-presenter">Mrs Divine Sarpong</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">3:50 PM</div>
+                        <h3 class="timeline-title">Special Presentations</h3>
+                        <div class="special-section">
+                            <h4>Celebrating Our Community</h4>
+                            <ul class="special-list">
+                                <li>Spoken Word Performance<small>Stephen Igweh Jnr.</small></li>
+                                <li>HPC Super Child Fellowship<small>Children's Presentation</small></li>
+                                <li>HPC Youth Fellowship<small>Zodash Dance Crew Performance</small></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">4:00 PM</div>
+                        <h3 class="timeline-title">Distinguished Speeches</h3>
+                        <div class="special-section">
+                            <h4>Guest Speakers</h4>
+                            <ul class="special-list">
+                                <li>Mr Frank Arko-Tharkor<small>Founder, Arko-Tharkor Group, Property Developers</small></li>
+                                <li>Rev. Fredrick Hagan<small>Founder, Edutalk UK</small></li>
+                                <li>Mr Steven Odeyemi<small>Operations Manager, National Probation Service, West London</small></li>
+                                <li>Dr Zumbi Elvis Musiba<small>Expert in Occupational Health & Community Sustainability</small></li>
+                                <li>Testimonies & Video Greetings<small>Special Messages from Around the World</small></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">4:50 PM</div>
+                        <h3 class="timeline-title">Ministration</h3>
+                        <p class="timeline-presenter">Apt. Benjamin Ashong</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">5:00 PM</div>
+                        <h3 class="timeline-title">HPC Story</h3>
+                        <p class="timeline-presenter">Video Presentation</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">5:10 PM</div>
+                        <h3 class="timeline-title">Mayoral Address</h3>
+                        <p class="timeline-presenter">The Worshipful Mayor of Barnet<br>Councillor Danny Rich</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">5:20 PM</div>
+                        <h3 class="timeline-title">Musical Performance</h3>
+                        <p class="timeline-presenter">Min. Melissa Sesay</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">5:30 PM</div>
+                        <h3 class="timeline-title">Exaltation & Prayer</h3>
+                        <p class="timeline-presenter">Dr Gospel Odame-Kentoe</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">5:50 PM</div>
+                        <h3 class="timeline-title">Anniversary Cake Cutting</h3>
+                        <p class="timeline-presenter">Ps Simeon, HPC & Dr Gospel Odame-Kentoe</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">6:00 PM</div>
+                        <h3 class="timeline-title">Benediction</h3>
+                        <p class="timeline-presenter">Ps Simeon</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">6:05 PM</div>
+                        <h3 class="timeline-title">Closing Praise Jam</h3>
+                        <p class="timeline-presenter">HPC Band</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="time-badge">6:25 PM</div>
+                        <h3 class="timeline-title">Fellowship & Refreshments</h3>
+                        <p class="timeline-presenter">Video Greetings • Photos • Networking</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <h3 class="footer-logo">HPC</h3>
+            <p class="footer-text">High Praise Chapel • 5 Years of Grace</p>
+            <div class="footer-divider"></div>
+            <p class="footer-text">June 28, 2025 • 3:00 PM</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
     </div>
 
-    <div class="container py-5">
-      <div class="row">
-        <div class="col-lg-12">
-          <!-- Featured Content Section -->
-          <div class="text-center mb-5">
-            <span class="badge bg-primary mb-3">Featured Content</span>
-            <h2 class="display-5 fw-bold">Watch Our Latest Message</h2>
-            <p class="lead text-muted">Be encouraged and inspired by God's word</p>
-          </div>
-          
-          <!-- Featured Video Section -->
-          <div v-if="loading" class="text-center py-5">
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
-            </div>
-            <p class="mt-3">Loading media content...</p>
-          </div>
-          
-          <div v-else-if="error" class="alert alert-danger" role="alert">
-            <i class="fas fa-exclamation-triangle me-2"></i>
-            {{ error }}
-          </div>
-          
-          <div v-else-if="featuredSermon" class="featured-video card border-0 shadow-lg mb-5">
-            <div class="card-body p-0">
-              <div class="row g-0">
-                <div class="col-lg-8">
-                  <div class="video-wrapper" @click="openVideoModal(featuredSermon)">
-                    <img 
-                      :src="featuredSermon.thumbnail || getYouTubeThumbnail(featuredSermon.video_url) || 'http://localhost:8000/uploads/gallery/vol8.jpg'" 
-                      :alt="featuredSermon.title" 
-                      class="featured-thumbnail"
-                    >
-                    <div class="video-overlay">
-                      <div class="play-button">
-                        <i class="fas fa-play"></i>
-                      </div>
-                    </div>
-                    <div class="video-badge">Featured</div>
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="video-info p-4 h-100 d-flex flex-column justify-content-center">
-                    <div class="video-category">Latest Sermon</div>
-                    <h4 class="video-title">{{ featuredSermon.title }}</h4>
-                    <p class="video-meta">{{ featuredSermon.speaker }} • {{ formatDate(featuredSermon.date) }}</p>
-                    <p class="video-description">{{ featuredSermon.description || 'Watch this inspiring message and be blessed by God\'s word.' }}</p>
-                    <button @click="openVideoModal(featuredSermon)" class="btn btn-primary btn-lg">
-                      <i class="fas fa-play me-2"></i>Watch Full Message
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Media Categories -->
-          <div class="media-categories mb-5">
-            <div class="text-center mb-4">
-              <h3>Browse by Category</h3>
-              <p class="text-muted">Find the content that speaks to your heart</p>
-            </div>
-            <div class="category-filters text-center mb-4">
-              <button 
-                class="btn btn-outline-primary me-2 mb-2" 
-                :class="{ active: activeCategory === 'all' }"
-                @click="setActiveCategory('all')"
-              >
-                All Content
-              </button>
-              <button 
-                class="btn btn-outline-primary me-2 mb-2" 
-                :class="{ active: activeCategory === 'sermons' }"
-                @click="setActiveCategory('sermons')"
-              >
-                Sermons
-              </button>
-              <button 
-                class="btn btn-outline-primary me-2 mb-2" 
-                :class="{ active: activeCategory === 'worship' }"
-                @click="setActiveCategory('worship')"
-              >
-                Worship
-              </button>
-              <button 
-                class="btn btn-outline-primary me-2 mb-2" 
-                :class="{ active: activeCategory === 'gallery' }"
-                @click="setActiveCategory('gallery')"
-              >
-                Gallery
-              </button>
-            </div>
-          </div>
-          
-          <!-- Recent Sermons -->
-          <div class="content-section sermons-section" v-show="activeCategory === 'all' || activeCategory === 'sermons'">
-            <div class="section-divider">
-              <div class="section-header-wrapper">
-                <h3 class="section-title mb-4">
-                  <i class="fas fa-video text-primary me-2"></i>Recent Sermons
-                </h3>
-                <p class="section-subtitle">Watch our latest messages and be inspired by God's word</p>
-              </div>
-            </div>
-            <div v-if="sermons.length > 0" class="row g-4 mb-5">
-              <div v-for="(sermon, index) in sermons.slice(1, 7)" :key="sermon.id" class="col-md-6 col-lg-4">
-                <div class="media-card card h-100 border-0 shadow-sm">
-                  <div class="media-image" @click="openVideoModal(sermon)">
-                    <img 
-                      :src="sermon.thumbnail || getYouTubeThumbnail(sermon.video_url) || 'http://localhost:8000/uploads/gallery/vol9.jpg'" 
-                      :alt="sermon.title" 
-                      class="card-img-top"
-                    >
-                    <div class="media-overlay">
-                      <div class="play-button-small">
-                        <i class="fas fa-play"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card-body p-4">
-                    <div class="media-category-tag">Sermon</div>
-                    <h5 class="card-title">{{ sermon.title }}</h5>
-                    <p class="media-meta">{{ formatDate(sermon.date) }} • {{ sermon.speaker }}</p>
-                    <p class="card-text">{{ sermon.description || 'Be blessed by this powerful message from God\'s word.' }}</p>
-                    <div class="media-actions">
-                      <button @click="openVideoModal(sermon)" class="btn btn-primary btn-sm">
-                        <i class="fas fa-play me-1"></i>Watch
-                      </button>
-                      <a v-if="sermon.video_url" :href="sermon.video_url" target="_blank" class="btn btn-outline-secondary btn-sm">
-                        <i class="fas fa-external-link-alt me-1"></i>YouTube
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Generate floating particles
+        function createParticles() {
+            const bgAnimation = document.getElementById('bgAnimation');
+            const particleCount = 50;
             
-            <div v-else-if="!loading" class="text-center py-5">
-              <i class="fas fa-video fa-3x text-muted mb-3"></i>
-              <h4>No Sermons Available</h4>
-              <p class="text-muted">Check back later for new sermon content.</p>
-            </div>
-          </div>
-          
-          <!-- Photo Gallery -->
-          <div class="content-section gallery-section" v-show="activeCategory === 'all' || activeCategory === 'gallery'">
-            <div class="section-divider">
-              <div class="section-header-wrapper">
-                <h3 class="section-title mb-4">
-                  <i class="fas fa-images text-primary me-2"></i>Photo Gallery
-                </h3>
-                <p class="section-subtitle">Capture the moments and memories of our church family</p>
-              </div>
-            </div>
-            <div v-if="galleryImages.length > 0" class="gallery-grid mb-5">
-              <div v-for="album in galleryImages" :key="album.id" class="gallery-item" @click="openAlbumDirectly(album)">
-                <div v-if="album.cover_image || (album.first_photo && album.first_photo.image)" class="gallery-image-wrapper">
-                  <img 
-                    :src="album.cover_image || album.first_photo.image" 
-                    :alt="album.title" 
-                    class="gallery-image"
-                  >
-                </div>
-                <div v-else class="gallery-placeholder">
-                  <i class="fas fa-images fa-2x"></i>
-                  <p>{{ album.title }}</p>
-                </div>
-                <div class="gallery-overlay">
-                  <div class="gallery-content">
-                    <h5>{{ album.title }}</h5>
-                    <p>{{ album.photo_count }} {{ album.photo_count === 1 ? 'photo' : 'photos' }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div v-else-if="!loading" class="text-center py-5">
-              <i class="fas fa-images fa-3x text-muted mb-3"></i>
-              <h4>No Albums Available</h4>
-              <p class="text-muted">Check back later for new photo albums.</p>
-            </div>
-          </div>
-          
-          
-          <!-- Live Stream Section -->
-          <div class="row mt-5">
-            <div class="col-12">
-              <div class="live-stream-section text-center bg-primary text-white rounded-4 p-5">
-                <div class="live-indicator mb-3">
-                  <span class="live-dot"></span>
-                  <span class="live-text">LIVE STREAMING</span>
-                </div>
-                <h3 class="mb-4">Join Us Live Every Sunday</h3>
-                <p class="lead mb-4">Experience our worship service from anywhere in the world. Connect with our community online and be part of something amazing!</p>
-                <div class="live-details mb-4">
-                  <div class="live-time">
-                    <i class="fas fa-clock me-2"></i>
-                    <span>Sundays at 10:00 AM (GMT)</span>
-                  </div>
-                </div>
-                <div class="live-buttons">
-                  <a href="https://us04web.zoom.us/j/6631263994" target="_blank" class="btn btn-light btn-lg me-3">
-                    <i class="fas fa-video me-2"></i>Watch Live on Zoom
-                  </a>
-                  <a href="#" class="btn btn-outline-light btn-lg">
-                    <i class="fas fa-bell me-2"></i>Get Notifications
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'floating-particle';
+                particle.style.width = Math.random() * 6 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = Math.random() * 20 + 20 + 's';
+                bgAnimation.appendChild(particle);
+            }
+        }
 
-    <!-- Album Photos Modal -->
-    <div v-if="showAlbumModal" class="album-modal-overlay" @click="closeAlbumModal">
-      <div class="album-modal" @click.stop>
-        <div class="album-modal-header">
-          <h3>{{ selectedAlbum ? selectedAlbum.title : 'Album' }}</h3>
-          <button @click="closeAlbumModal" class="album-modal-close">&times;</button>
-        </div>
-        <div class="album-modal-body">
-          <div v-if="selectedAlbum && selectedAlbum.description" class="album-description mb-4">
-            <p>{{ selectedAlbum.description }}</p>
-          </div>
-          <div class="album-photos-grid">
-            <div v-for="photo in albumPhotos" :key="photo.id" class="album-photo-item">
-              <img :src="photo.image" :alt="photo.title" class="album-photo-image" @click="openImageViewer(photo)">
-              <div class="album-photo-overlay">
-                <div class="album-photo-content">
-                  <h6>{{ photo.title }}</h6>
-                  <p v-if="photo.description">{{ photo.description }}</p>
-                </div>
-                <div class="album-photo-actions">
-                  <button @click.stop="openImageViewer(photo)" class="btn btn-sm btn-light" title="View Full Size">
-                    <i class="fas fa-expand"></i>
-                  </button>
-                  <button @click.stop="downloadImage(photo)" class="btn btn-sm btn-primary" title="Download">
-                    <i class="fas fa-download"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div v-if="albumPhotos.length === 0" class="text-center py-5">
-            <i class="fas fa-images fa-3x text-muted mb-3"></i>
-            <h4>No Photos in this Album</h4>
-            <p class="text-muted">This album is empty.</p>
-          </div>
-        </div>
-      </div>
-    </div>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
 
-    <!-- Image Viewer Modal -->
-    <div v-if="showImageViewer" class="image-viewer-overlay" @click="closeImageViewer">
-      <div class="image-viewer-modal" @click.stop>
-        <div class="image-viewer-header">
-          <h4>{{ currentImage ? currentImage.title : 'Image' }}</h4>
-          <button @click="closeImageViewer" class="image-viewer-close">&times;</button>
-        </div>
-        <div class="image-viewer-body">
-          <div class="image-viewer-navigation">
-            <button 
-              @click="previousImage" 
-              class="nav-btn prev-btn" 
-              :disabled="currentImageIndex === 0"
-              v-if="albumPhotos.length > 1"
-            >
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button 
-              @click="nextImage" 
-              class="nav-btn next-btn" 
-              :disabled="currentImageIndex === albumPhotos.length - 1"
-              v-if="albumPhotos.length > 1"
-            >
-              <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-          <div class="image-container">
-            <img 
-              v-if="currentImage" 
-              :src="currentImage.image" 
-              :alt="currentImage.title" 
-              class="full-size-image"
-            >
-          </div>
-          <div class="image-viewer-info">
-            <div class="image-details">
-              <h5>{{ currentImage ? currentImage.title : '' }}</h5>
-              <p v-if="currentImage && currentImage.description">{{ currentImage.description }}</p>
-              <small class="text-muted">{{ currentImageIndex + 1 }} of {{ albumPhotos.length }}</small>
-            </div>
-            <div class="image-actions">
-              <button @click="downloadImage(currentImage)" class="btn btn-primary">
-                <i class="fas fa-download me-2"></i>Download
-              </button>
-              <button @click="closeImageViewer" class="btn btn-secondary">
-                <i class="fas fa-times me-2"></i>Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('show');
+                    }, index * 100);
+                }
+            });
+        }, observerOptions);
 
-<script>
-export default {
-  name: 'Media',
-  data() {
-    return {
-      loading: true,
-      sermons: [],
-      galleryImages: [],
-      featuredSermon: null,
-      activeCategory: 'all',
-      error: null,
-      selectedAlbum: null,
-      albumPhotos: [],
-      showAlbumModal: false,
-      showImageViewer: false,
-      currentImage: null,
-      currentImageIndex: 0
-    }
-  },
-  async mounted() {
-    await this.loadContent();
-  },
-  methods: {
-    async loadContent() {
-      this.loading = true;
-      try {
-        await Promise.all([
-          this.loadSermons(),
-          this.loadGalleryImages()
-        ]);
+        // Observe timeline items
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+
+        // Scroll to top functionality
+        const scrollTop = document.getElementById('scrollTop');
         
-        // Set featured sermon (most recent)
-        if (this.sermons.length > 0) {
-          this.featuredSermon = this.sermons[0];
-        }
-      } catch (error) {
-        console.error('Error loading content:', error);
-        this.error = 'Failed to load media content. Please try again later.';
-      } finally {
-        this.loading = false;
-      }
-    },
-    
-    async loadSermons() {
-      try {
-        const response = await fetch('http://localhost:8000/api/sermons/');
-        if (response.ok) {
-          const data = await response.json();
-          this.sermons = data.results || data;
-        } else {
-          throw new Error('Failed to load sermons');
-        }
-      } catch (error) {
-        console.error('Error loading sermons:', error);
-        throw error;
-      }
-    },
-    
-    async loadGalleryImages() {
-      try {
-        const response = await fetch('http://localhost:8000/api/albums/public/');
-        if (response.ok) {
-          const data = await response.json();
-          this.galleryImages = data.results || data;
-        } else {
-          throw new Error('Failed to load gallery albums');
-        }
-      } catch (error) {
-        console.error('Error loading gallery albums:', error);
-        throw error;
-      }
-    },
-
-    async openAlbum(album) {
-      try {
-        const response = await fetch(`http://localhost:8000/api/gallery/album/${album.id}/`);
-        if (response.ok) {
-          const data = await response.json();
-          this.selectedAlbum = album;
-          this.albumPhotos = data.results || data;
-          this.showAlbumModal = true;
-        }
-      } catch (error) {
-        console.error('Error loading album photos:', error);
-        alert('Error loading album photos');
-      }
-    },
-
-    async openAlbumDirectly(album) {
-      try {
-        const response = await fetch(`http://localhost:8000/api/gallery/album/${album.id}/`);
-        if (response.ok) {
-          const data = await response.json();
-          this.selectedAlbum = album;
-          this.albumPhotos = data.results || data;
-          
-          // If album has photos, open the first one directly in image viewer
-          if (this.albumPhotos.length > 0) {
-            this.openImageViewer(this.albumPhotos[0]);
-          } else {
-            // If no photos, show the album modal
-            this.showAlbumModal = true;
-          }
-        }
-      } catch (error) {
-        console.error('Error loading album photos:', error);
-        alert('Error loading album photos');
-      }
-    },
-
-    closeAlbumModal() {
-      this.showAlbumModal = false;
-      this.selectedAlbum = null;
-      this.albumPhotos = [];
-    },
-    
-    formatDate(dateString) {
-      const date = new Date(dateString);
-      return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-    },
-    
-    getYouTubeEmbedUrl(url) {
-      if (!url) return null;
-      
-      // Extract video ID from various YouTube URL formats
-      const videoIdMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
-      
-      if (videoIdMatch) {
-        return `https://www.youtube.com/embed/${videoIdMatch[1]}`;
-      }
-      
-      return null;
-    },
-    
-    getYouTubeThumbnail(url) {
-      if (!url) return null;
-      
-      const videoIdMatch = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
-      
-      if (videoIdMatch) {
-        return `https://img.youtube.com/vi/${videoIdMatch[1]}/maxresdefault.jpg`;
-      }
-      
-      return null;
-    },
-    
-    openVideoModal(sermon) {
-      // Open YouTube video in new tab
-      if (sermon.video_url) {
-        window.open(sermon.video_url, '_blank');
-      } else {
-        // Show error message if no video URL
-        alert('No video URL available for this sermon.');
-      }
-    },
-    
-    setActiveCategory(category) {
-      this.activeCategory = category;
-    },
-
-    openImageViewer(photo) {
-      this.currentImage = photo;
-      this.currentImageIndex = this.albumPhotos.findIndex(p => p.id === photo.id);
-      this.showImageViewer = true;
-    },
-
-    closeImageViewer() {
-      this.showImageViewer = false;
-      this.currentImage = null;
-      this.currentImageIndex = 0;
-    },
-
-    nextImage() {
-      if (this.currentImageIndex < this.albumPhotos.length - 1) {
-        this.currentImageIndex++;
-        this.currentImage = this.albumPhotos[this.currentImageIndex];
-      }
-    },
-
-    previousImage() {
-      if (this.currentImageIndex > 0) {
-        this.currentImageIndex--;
-        this.currentImage = this.albumPhotos[this.currentImageIndex];
-      }
-    },
-
-    downloadImage(photo) {
-      if (photo && photo.image) {
-        const link = document.createElement('a');
-        link.href = photo.image;
-        link.download = photo.title || 'image';
-        link.target = '_blank';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      }
-    }
-  }
-}
-</script>
-
-<style scoped>
-/* Hero Section */
-.media-hero {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%),
-              url('http://localhost:8000/uploads/gallery/h4.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 5rem 0;
-  margin-bottom: 0;
-}
-
-.hero-image-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-}
-
-.hero-image-wrapper img {
-  transition: transform 0.5s ease;
-  height: 400px;
-  width: 100%;
-  object-fit: cover;
-}
-
-.hero-image-wrapper:hover img {
-  transform: scale(1.05);
-}
-
-.image-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-}
-
-.hero-image-wrapper:hover .image-overlay {
-  opacity: 1;
-}
-
-.overlay-content {
-  text-align: center;
-  transform: translateY(20px);
-  transition: transform 0.3s ease;
-}
-
-.hero-image-wrapper:hover .overlay-content {
-  transform: translateY(0);
-}
-
-.hero-stats {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.stat-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: white;
-  font-weight: 600;
-}
-
-.stat-item i {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
-
-/* Featured Video */
-.featured-video {
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.video-wrapper {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
-}
-
-.featured-thumbnail {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.video-overlay:hover {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.play-button {
-  width: 80px;
-  height: 80px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: var(--primary-color);
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.play-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-}
-
-.video-badge {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: #ff6b6b;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.video-info {
-  background: #f8f9fa;
-}
-
-.video-category {
-  background: var(--primary-color);
-  color: white;
-  padding: 6px 16px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-.video-title {
-  color: var(--text-dark);
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.video-meta {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-.video-description {
-  color: var(--text-dark);
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-/* Category Filters */
-.category-filters .btn {
-  border-radius: 25px;
-  padding: 10px 20px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.category-filters .btn.active {
-  background: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-/* Media Cards */
-.media-card {
-  transition: all 0.4s ease;
-  border-radius: 20px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.media-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
-}
-
-.media-image {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
-}
-
-.media-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.media-card:hover .media-image img {
-  transform: scale(1.1);
-}
-
-.media-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.media-card:hover .media-overlay {
-  opacity: 1;
-}
-
-.play-button-small {
-  width: 50px;
-  height: 50px;
-  background: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-.play-button-small:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-
-.media-duration {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 4px 8px;
-  border-radius: 10px;
-  font-size: 0.8rem;
-}
-
-.media-category-tag {
-  background: var(--primary-color);
-  color: white;
-  padding: 4px 12px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-.media-meta {
-  color: var(--text-light);
-  font-size: 0.85rem;
-  margin-bottom: 1rem;
-}
-
-.media-actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.media-actions .btn {
-  border-radius: 20px;
-  font-size: 0.85rem;
-  padding: 8px 16px;
-}
-
-/* Gallery Grid */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-}
-
-.gallery-item {
-  position: relative;
-  height: 250px;
-  border-radius: 15px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.gallery-image-wrapper {
-  width: 100%;
-  height: 100%;
-}
-
-.gallery-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.gallery-item:hover .gallery-image {
-  transform: scale(1.1);
-}
-
-.gallery-placeholder {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f8f9fa;
-  color: #6c757d;
-  border: 2px dashed #dee2e6;
-  border-radius: 8px;
-}
-
-.gallery-placeholder i {
-  margin-bottom: 0.5rem;
-  opacity: 0.6;
-}
-
-.gallery-placeholder p {
-  margin: 0;
-  font-weight: 500;
-  font-size: 0.9rem;
-  text-align: center;
-  padding: 0 0.5rem;
-}
-
-.gallery-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
-  display: flex;
-  align-items: flex-end;
-  padding: 1.5rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-overlay {
-  opacity: 1;
-}
-
-.gallery-content h5 {
-  color: white;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.gallery-content p {
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-
-/* Live Stream Section */
-.live-stream-section {
-  background: var(--primary-gradient) !important;
-  position: relative;
-  overflow: hidden;
-}
-
-.live-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.live-dot {
-  width: 12px;
-  height: 12px;
-  background: #ff4757;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-.live-text {
-  font-weight: 700;
-  letter-spacing: 1px;
-}
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
-  }
-}
-
-.live-time {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10px 20px;
-  border-radius: 25px;
-  display: inline-block;
-}
-
-.live-buttons .btn {
-  border-radius: 25px;
-  padding: 12px 30px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.live-buttons .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-/* Section Styling */
-.content-section {
-  margin-bottom: 4rem;
-  position: relative;
-}
-
-.sermons-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-  border-radius: 20px;
-  padding: 3rem 2rem;
-  margin: 3rem 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.gallery-section {
-  background: linear-gradient(135deg, #ffffff 0%, #f1f3f4 100%);
-  border-radius: 20px;
-  padding: 3rem 2rem;
-  margin: 3rem 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-}
-
-.section-divider {
-  position: relative;
-  margin-bottom: 2rem;
-}
-
-.section-divider::after {
-  content: '';
-  position: absolute;
-  bottom: -1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-color) 0%, rgba(102, 126, 234, 0.3) 100%);
-  border-radius: 2px;
-}
-
-.section-header-wrapper {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.section-title {
-  color: var(--text-dark);
-  font-weight: 700;
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
-}
-
-.section-subtitle {
-  color: var(--text-light);
-  font-size: 1.1rem;
-  margin-bottom: 0;
-  font-style: italic;
-}
-
-/* General Styling */
-.badge {
-  font-size: 0.9rem;
-  padding: 10px 20px;
-  border-radius: 20px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.display-5 {
-  font-family: var(--font-secondary);
-  font-weight: 700;
-}
-
-/* Video Link Styles */
-.video-wrapper {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.video-wrapper:hover {
-  transform: scale(1.02);
-}
-
-.media-image {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.media-image:hover {
-  transform: scale(1.02);
-}
-
-/* Loading and Error States */
-.spinner-border {
-  width: 3rem;
-  height: 3rem;
-  border-width: 0.3em;
-}
-
-.alert {
-  border-radius: 12px;
-  border: none;
-  padding: 1.5rem;
-}
-
-.alert-danger {
-  background: #fff5f5;
-  color: #c53030;
-  border-left: 4px solid #e53e3e;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .media-hero {
-    padding: 3rem 0;
-    text-align: center;
-  }
-  
-  .hero-image-wrapper img {
-    height: 300px;
-  }
-  
-  .hero-stats {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  
-  .video-wrapper {
-    height: 200px;
-  }
-  
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .gallery-item {
-    height: 200px;
-  }
-  
-  
-  .live-buttons .btn {
-    display: block;
-    margin-bottom: 15px;
-    width: 100%;
-  }
-  
-  .live-buttons .btn:last-child {
-    margin-bottom: 0;
-  }
-  
-  .media-actions {
-    justify-content: center;
-  }
-  
-  .sermons-section,
-  .gallery-section {
-    padding: 2rem 1rem;
-    margin: 2rem 0;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-  }
-  
-  .section-subtitle {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .media-actions {
-    flex-direction: column;
-  }
-  
-  .sermons-section,
-  .gallery-section {
-    padding: 1.5rem 1rem;
-    margin: 1.5rem 0;
-  }
-  
-  .section-title {
-    font-size: 1.5rem;
-  }
-  
-  .section-subtitle {
-    font-size: 0.9rem;
-  }
-}
-
-/* Album Modal Styles */
-.album-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  padding: 2rem;
-}
-
-.album-modal {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  width: 90%;
-  max-width: 1200px;
-  max-height: 90vh;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-}
-
-.album-modal-header {
-  background: var(--primary-color);
-  color: white;
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.album-modal-header h3 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.album-modal-close {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
-
-.album-modal-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.album-modal-body {
-  padding: 1.5rem;
-  overflow-y: auto;
-  flex: 1;
-}
-
-.album-description {
-  background: #f8f9fa;
-  padding: 1rem;
-  border-radius: 8px;
-  font-style: italic;
-  color: #666;
-}
-
-.album-photos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.album-photo-item {
-  position: relative;
-  aspect-ratio: 4/3;
-  border-radius: 8px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.album-photo-item:hover {
-  transform: scale(1.05);
-}
-
-.album-photo-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.album-photo-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.8));
-  display: flex;
-  align-items: flex-end;
-  padding: 1rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.album-photo-item:hover .album-photo-overlay {
-  opacity: 1;
-}
-
-.album-photo-content h6 {
-  color: white;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-  font-size: 0.9rem;
-}
-
-.album-photo-content p {
-  color: rgba(255, 255, 255, 0.9);
-  margin: 0;
-  font-size: 0.8rem;
-}
-
-@media (max-width: 768px) {
-  .album-modal {
-    width: 95%;
-    margin: 1rem;
-  }
-  
-  .album-photos-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 0.75rem;
-  }
-  
-  .album-modal-body {
-    padding: 1rem;
-  }
-}
-
-/* Image Viewer Modal Styles */
-.image-viewer-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-  padding: 2rem;
-}
-
-.image-viewer-modal {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  width: 90%;
-  max-width: 1000px;
-  max-height: 90vh;
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
-  display: flex;
-  flex-direction: column;
-}
-
-.image-viewer-header {
-  background: var(--primary-color);
-  color: white;
-  padding: 1rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.image-viewer-header h4 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.image-viewer-close {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.2s ease;
-}
-
-.image-viewer-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.image-viewer-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  min-height: 0;
-}
-
-.image-viewer-navigation {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-  z-index: 10;
-  pointer-events: none;
-}
-
-.nav-btn {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  color: var(--primary-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  pointer-events: auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.nav-btn:hover:not(:disabled) {
-  background: white;
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.nav-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
-
-.prev-btn {
-  left: 1rem;
-}
-
-.next-btn {
-  right: 1rem;
-}
-
-.image-container {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  min-height: 0;
-  overflow: hidden;
-}
-
-.full-size-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.image-viewer-info {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.image-details h5 {
-  margin: 0 0 0.5rem 0;
-  color: var(--text-dark);
-  font-weight: 600;
-}
-
-.image-details p {
-  margin: 0 0 0.5rem 0;
-  color: var(--text-light);
-  font-size: 0.9rem;
-}
-
-.image-details small {
-  color: var(--text-light);
-  font-size: 0.8rem;
-}
-
-.image-actions {
-  display: flex;
-  gap: 0.75rem;
-}
-
-.image-actions .btn {
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.image-actions .btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Album Photo Actions */
-.album-photo-actions {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  display: flex;
-  gap: 0.25rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.album-photo-item:hover .album-photo-actions {
-  opacity: 1;
-}
-
-.album-photo-actions .btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  border: none;
-  transition: all 0.3s ease;
-}
-
-.album-photo-actions .btn:hover {
-  transform: scale(1.1);
-}
-
-/* Responsive styles for image viewer */
-@media (max-width: 768px) {
-  .image-viewer-overlay {
-    padding: 1rem;
-  }
-  
-  .image-viewer-modal {
-    width: 95%;
-    max-height: 95vh;
-  }
-  
-  .image-viewer-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  
-  .image-actions {
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .nav-btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-  }
-  
-  .prev-btn {
-    left: 0.5rem;
-  }
-  
-  .next-btn {
-    right: 0.5rem;
-  }
-  
-  .image-container {
-    padding: 0.5rem;
-  }
-}
-
-@media (max-width: 576px) {
-  .image-actions .btn {
-    flex: 1;
-    min-width: 0;
-  }
-  
-  .image-viewer-header h4 {
-    font-size: 1rem;
-  }
-  
-  .image-viewer-info {
-    padding: 1rem;
-  }
-}
-</style>
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('show');
+            } else {
+                scrollTop.classList.remove('show');
+            }
+        });
+
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Mouse glow effect
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.createElement('div');
+            glow.style.position = 'fixed';
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+            glow.style.width = '0';
+            glow.style.height = '0';
+            glow.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent)';
+            glow.style.borderRadius = '50%';
+            glow.style.pointerEvents = 'none';
+            glow.style.transform = 'translate(-50%, -50%)';
+            glow.style.transition = 'all 0.5s ease-out';
+            glow.style.zIndex = '9999';
+            
+            document.body.appendChild(glow);
+            
+            setTimeout(() => {
+                glow.style.width = '100px';
+                glow.style.height = '100px';
+                glow.style.opacity = '0';
+            }, 10);
+            
+            setTimeout(() => glow.remove(), 500);
+        });
+
+        // Initialize
+        createParticles();
+
+        // Parallax effect on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const hero = document.querySelector('.hero-section');
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+    </script>
+</body>
+</html>
