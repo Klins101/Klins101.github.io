@@ -1,1025 +1,525 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High Praise Chapel - 5th Anniversary Celebration</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --gold: #d4af37;
-            --gold-light: #f4e5a3;
-            --gold-dark: #b8941f;
-            --black: #0a0a0a;
-            --gray: #1a1a1a;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--black);
-            color: #fff;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Animated Background */
-        .background-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .floating-particle {
-            position: absolute;
-            background: var(--gold);
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: float-up 20s infinite linear;
-        }
-
-        @keyframes float-up {
-            from {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.1;
-            }
-            90% {
-                opacity: 0.1;
-            }
-            to {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Hero Section */
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-        }
-
-        /* Community Section */
-        .community-section {
-            padding: 6rem 0;
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(180deg, #0f0f0f 0%, var(--black) 100%);
-        }
-
-        .community-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('h3.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.15;
-            filter: sepia(0.3) contrast(1.2);
-        }
-
-        .community-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(212, 175, 55, 0.1) 50%, rgba(0, 0, 0, 0.8) 100%);
-        }
-
-        .community-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .community-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .community-subtitle {
-            font-size: 1.5rem;
-            color: var(--gold-light);
-            font-style: italic;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .community-text {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.8;
-            margin-bottom: 3rem;
-        }
-
-        .community-quote {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: var(--gold);
-            font-style: italic;
-            position: relative;
-            padding: 2rem;
-            margin: 3rem 0;
-        }
-
-        .community-quote::before,
-        .community-quote::after {
-            content: '"';
-            font-size: 4rem;
-            color: var(--gold);
-            opacity: 0.3;
-            position: absolute;
-        }
-
-        .community-quote::before {
-            top: -10px;
-            left: -20px;
-        }
-
-        .community-quote::after {
-            bottom: -40px;
-            right: -20px;
-        }
-
-        .hero-container {
-            text-align: center;
-            z-index: 10;
-            max-width: 1000px;
-            padding: 2rem;
-        }
-
-        /* Anniversary Logo */
-        .anniversary-logo {
-            width: 400px;
-            height: 400px;
-            margin: 0 auto 3rem;
-            position: relative;
-            filter: drop-shadow(0 0 50px rgba(212, 175, 55, 0.3));
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .anniversary-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
-        }
-
-        /* Hero Content */
-        .church-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 1rem;
-            background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 3s linear infinite;
-        }
-
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        .celebration-text {
-            font-size: 1.8rem;
-            color: var(--gold-light);
-            font-weight: 300;
-            margin-bottom: 3rem;
-            letter-spacing: 2px;
-        }
-
-        .event-card {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 20px;
-            padding: 3rem;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .event-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            animation: rotate-slow 30s linear infinite;
-        }
-
-        .event-info {
-            position: relative;
-            z-index: 1;
-        }
-
-        .event-info h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 2.2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .event-detail {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 1.5rem 0;
-            font-size: 1.3rem;
-            gap: 1rem;
-        }
-
-        .event-detail i {
-            color: var(--gold);
-            font-size: 1.5rem;
-            width: 30px;
-        }
-
-        /* Program Section */
-        .program-section {
-            padding: 8rem 0;
-            background: linear-gradient(180deg, var(--black) 0%, #0f0f0f 50%, var(--black) 100%);
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 6rem;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 300;
-        }
-
-        .decorative-line {
-            width: 150px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 2rem auto;
-        }
-
-        /* Timeline */
-        .timeline {
-            position: relative;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--gold), rgba(212, 175, 55, 0.1));
-            opacity: 0.3;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding: 3rem 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .timeline-item.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .timeline-node {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 30px;
-            height: 30px;
-            background: var(--black);
-            border: 3px solid var(--gold);
-            border-radius: 50%;
-            z-index: 10;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-        }
-
-        .timeline-node::after {
-            content: '';
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: var(--gold);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .timeline-content {
-            width: 45%;
-            background: rgba(26, 26, 26, 0.6);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            padding: 2.5rem;
-            position: relative;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            overflow: hidden;
-        }
-
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s ease;
-        }
-
-        .timeline-content:hover::before {
-            transform: translateX(0);
-        }
-
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
-            border-color: rgba(212, 175, 55, 0.4);
-        }
-
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: auto;
-        }
-
-        .time-badge {
-            display: inline-block;
-            background: var(--gold);
-            color: var(--black);
-            padding: 0.5rem 1.5rem;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .timeline-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: #fff;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .timeline-presenter {
-            color: var(--gold-light);
-            font-size: 1.1rem;
-            font-style: italic;
-        }
-
-        .special-section {
-            margin-top: 1.5rem;
-            padding: 1.5rem;
-            background: rgba(212, 175, 55, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .special-section h4 {
-            color: var(--gold);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .special-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .special-list li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.6;
-        }
-
-        .special-list li::before {
-            content: '✦';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-size: 1.2rem;
-        }
-
-        .special-list small {
-            display: block;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
-            margin-top: 0.3rem;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 5rem 0;
-            background: linear-gradient(180deg, var(--black), #000);
-            text-align: center;
-            border-top: 1px solid rgba(212, 175, 55, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 1px;
-            background: var(--gold);
-            box-shadow: 0 0 20px var(--gold);
-        }
-
-        .footer-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .footer-logo {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 2rem;
-            opacity: 0.6;
-            filter: grayscale(0.5);
-            transition: all 0.3s ease;
-        }
-
-        .footer-logo:hover {
-            opacity: 0.8;
-            filter: grayscale(0);
-        }
-
-        .footer-logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .footer-text {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-divider {
-            width: 100px;
-            height: 1px;
-            background: var(--gold);
-            margin: 2rem auto;
-            opacity: 0.5;
-        }
-
-        /* Scroll Button */
-        .scroll-top {
-            position: fixed;
-            bottom: 40px;
-            right: 40px;
-            width: 60px;
-            height: 60px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
-            z-index: 1000;
-        }
-
-        .scroll-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
-        }
-
-        .scroll-top i {
-            color: var(--black);
-            font-size: 1.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 968px) {
-            .church-name {
-                font-size: 3rem;
-            }
-
-            .anniversary-logo {
-                width: 300px;
-                height: 300px;
-            }
-
-            .timeline-line {
-                left: 40px;
-            }
-
-            .timeline-node {
-                left: 40px;
-            }
-
-            .timeline-content {
-                width: calc(100% - 100px);
-                margin-left: 80px !important;
-            }
-
-            .timeline-title {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Mobile Optimizations */
-        @media (max-width: 576px) {
-            .church-name {
-                font-size: 2rem;
-                letter-spacing: 1px;
-            }
-
-            .anniversary-logo {
-                width: 250px;
-                height: 250px;
-            }
-
-            .celebration-text {
-                font-size: 1.2rem;
-            }
-
-            .event-card {
-                padding: 1.5rem;
-            }
-
-            .event-info h3 {
-                font-size: 1.8rem;
-            }
-
-            .event-detail {
-                font-size: 1rem;
-                margin: 1rem 0;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1rem;
-            }
-
-            .timeline-content {
-                padding: 1.5rem;
-            }
-
-            .time-badge {
-                font-size: 1rem;
-                padding: 0.4rem 1rem;
-            }
-
-            .timeline-title {
-                font-size: 1.3rem;
-            }
-
-            .timeline-presenter {
-                font-size: 1rem;
-            }
-
-            .special-section {
-                padding: 1rem;
-            }
-
-            .special-section h4 {
-                font-size: 1.2rem;
-            }
-
-            .special-list li {
-                padding: 0.5rem 0;
-                font-size: 0.9rem;
-            }
-
-            .special-list small {
-                font-size: 0.8rem;
-            }
-
-            .gallery-title {
-                font-size: 2rem;
-            }
-
-            .community-title {
-                font-size: 2rem;
-            }
-
-            .footer-logo {
-                width: 150px;
-                height: 150px;
-            }
-
-            .footer-text {
-                font-size: 1rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Animated Background -->
-    <div class="background-animation" id="bgAnimation"></div>
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <!-- Anniversary Logo -->
-            <div class="anniversary-logo">
-                <img src="image.png" alt="High Praise Chapel 5 Years Anniversary">
-            </div>
-
-            <h1 class="church-name">High Praise Chapel</h1>
-            <p class="celebration-text">God's Faithfulness</p>
-
-            <div class="event-card">
-                <div class="event-info">
-                    <h3>Anniversary Service</h3>
-                    <div class="event-detail">
-                        <i class="fas fa-calendar-alt"></i>
-                        <span>Saturday, 28th June 2025</span>
-                    </div>
-                    <div class="event-detail">
-                        <i class="fas fa-clock"></i>
-                        <span>3:00 PM prompt</span>
-                    </div>
-                    <div class="event-detail">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>High Praise Chapel</span>
-                    </div>
+<!-- OSCE Practice Section -->
+            <div v-if="activeSection === 'osce'" class="dashboard-section">
+              <h2 class="mb-4">OSCE Practice</h2>
+              <p class="text-muted mb-4">Practice your clinical examination skills with our structured Objective Structured Clinical Examination (OSCE) modules designed to improve your diagnostic and procedural abilities.</p>
+              
+              <div v-if="isLoadingOsceExams" class="loading-indicator text-center py-5">
+                <div class="spinner-border text-primary" role="status">
+                  <span class="visually-hidden">Loading...</span>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Program Section -->
-    <section class="program-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Programme Outline</h2>
-                <div class="decorative-line"></div>
-                <p class="section-subtitle">An afternoon of worship, celebration, and thanksgiving</p>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-line"></div>
-
-                <!-- Timeline Items -->
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">3:00 PM</div>
-                        <h3 class="timeline-title">Opening Prayer</h3>
-                        <p class="timeline-presenter">Ps Regina Kumi / Ps Janet</p>
-                    </div>
+                <p class="mt-3">Loading OSCE practice modules...</p>
+              </div>
+              
+              <div v-else-if="osceExams.length === 0" class="text-center py-5">
+                <div class="no-data-icon">
+                  <i class="bi bi-clipboard-pulse" style="font-size: 3rem; color: #dee2e6;"></i>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">3:05 PM</div>
-                        <h3 class="timeline-title">Songs of Praise</h3>
-                        <p class="timeline-presenter">HPC Band</p>
-                    </div>
+                <h3 class="mt-3">No OSCE Exams Available</h3>
+                <p class="text-muted">There are currently no OSCE practice modules available for your category. Please check back later!</p>
+              </div>
+              
+              <div v-else>
+                <!-- OSCE Practice Categories -->
+                <div class="osce-categories mb-4">
+                  <ul class="nav nav-tabs nav-fill">
+                    <li class="nav-item">
+                      <a 
+                        class="nav-link" 
+                        :class="{ active: osceTab === 'unmanned' }" 
+                        href="#" 
+                        @click.prevent="osceTab = 'unmanned'"
+                      >
+                        <i class="bi bi-clipboard-pulse me-2"></i> Unmanned OSCE
+                        <span class="badge bg-primary ms-2">{{ unmannedOsceExams.length }}</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a 
+                        class="nav-link" 
+                        :class="{ active: osceTab === 'manned' }" 
+                        href="#" 
+                        @click.prevent="osceTab = 'manned'"
+                      >
+                        <i class="bi bi-person-video3 me-2"></i> Manned OSCE
+                        <span class="badge bg-info ms-2">{{ mannedOsceExams.length }}</span>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a 
+                        class="nav-link" 
+                        :class="{ active: osceTab === 'diagnostics' }" 
+                        href="#" 
+                        @click.prevent="osceTab = 'diagnostics'"
+                      >
+                        <i class="bi bi-clipboard-data me-2"></i> Diagnostics
+                        <span class="badge bg-purple ms-2">{{ filteredDiagnosticExams.length }}</span>
+                      </a>
+                    </li>
+                  </ul>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">3:30 PM</div>
-                        <h3 class="timeline-title">Welcome & Greetings</h3>
-                        <p class="timeline-presenter">Ps Janet Odame</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">3:35 PM</div>
-                        <h3 class="timeline-title">Introduction</h3>
-                        <p class="timeline-presenter">Senior Clergy & Leaders<br><small>Ps Michael Boakye</small></p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">3:40 PM</div>
-                        <h3 class="timeline-title">Musical Performance</h3>
-                        <p class="timeline-presenter">Mr Kunda Jones</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">3:45 PM</div>
-                        <h3 class="timeline-title">Musical Performance</h3>
-                        <p class="timeline-presenter">Mrs Divine Sarpong</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">3:50 PM</div>
-                        <h3 class="timeline-title">Presentations</h3>
-                        <div class="special-section">
-                           
-                            <ul class="special-list">
-                                <li>Spoken Word<small>Stephen Igweh Jnr.</small></li>
-                                <li>Children's Ministry<small>HPC Super Child Fellowship</small></li>
-                                <li>Youth Dance<small>Zodash Dance Crew</small></li>
-                            </ul>
+                
+                <!-- Unmanned OSCE Exams -->
+                <div v-if="osceTab === 'unmanned'">
+                  <div class="row g-4">
+                    <div class="col-md-6" v-for="(exam, index) in unmannedOsceExams" :key="`osce-${index}`">
+                      <div class="osce-exam-card" :class="{'taken-exam': hasUserTakenExam(exam.id)}">
+                        <div class="exam-status-ribbon" v-if="hasUserTakenExam(exam.id)">
+                          <span><i class="bi bi-check-circle-fill"></i> Completed</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">4:00 PM</div>
-                        <h3 class="timeline-title">Distinguished Speeches</h3>
-                        <div class="special-section">
-                            <h4>Guest Speakers</h4>
-                            <ul class="special-list">
-                                <li>Mr Frank Arko-Tharkor<small>Arko-Tharkor Group</small></li>
-                                <li>Rev. Fredrick Hagan<small>Founder, Edutalk UK</small></li>
-                                <li>Mr Steven Odeyemi<small>National Probation Service</small></li>
-                                <li>Dr Zumbi Elvis Musiba<small>Community Development Expert</small></li>
-                                <li>Testimonies<small>Video Greetings</small></li>
-                            </ul>
+                        <div class="exam-header">
+                          <div class="exam-icon">
+                            <i class="bi bi-clipboard-pulse"></i>
+                          </div>
+                          <div class="exam-info">
+                            <h3 class="exam-title">{{ exam.title }}</h3>
+                            <div class="exam-badges">
+                              <span class="badge bg-light text-dark">
+                                <i class="bi bi-clock"></i> {{ exam.duration_minutes }} minutes
+                              </span>
+                              <span class="badge bg-light text-dark">
+                                <i class="bi bi-hospital"></i> {{ exam.station_count || calculateStationCount(exam) }} stations
+                              </span>
+                              <span class="badge bg-light text-dark" v-if="hasUserTakenExam(exam.id)">
+                                <i class="bi bi-calendar-check"></i> Last: {{ getLastAttemptDate(exam.id) }}
+                              </span>
+                            </div>
+                          </div>
                         </div>
+                        
+                        <div class="exam-body">
+                          <p>{{ exam.description || 'Practice your clinical skills with this unmanned OSCE exam.' }}</p>
+                          
+                          <div class="osce-features">
+                            <div class="feature-item">
+                              <i class="bi bi-check-circle"></i>
+                              <span>Self-assessment format</span>
+                            </div>
+                            <div class="feature-item">
+                              <i class="bi bi-check-circle"></i>
+                              <span>Clinical scenario analysis</span>
+                            </div>
+                            <div class="feature-item">
+                              <i class="bi bi-check-circle"></i>
+                              <span>Detailed performance metrics</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="exam-footer">
+                          <button 
+                            v-if="hasUserTakenExam(exam.id)" 
+                            class="btn btn-outline-info me-2" 
+                            @click="viewExamResults(exam.id)"
+                          >
+                            <i class="bi bi-bar-chart-fill me-1"></i> View Results
+                          </button>
+                          <button 
+                            class="btn btn-primary" 
+                            @click="handleExamAccess(exam)"
+                          >
+                            <i class="bi bi-play-fill me-1"></i> {{ hasUserTakenExam(exam.id) ? 'Retake Exam' : 'Start Exam' }}
+                          </button>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">4:50 PM</div>
-                        <h3 class="timeline-title">Offering/Giving</h3>
-                        <p class="timeline-presenter">Apt. Benjamin Ashong</p>
+                
+                <!-- Manned OSCE Section -->
+                <div v-if="osceTab === 'manned'">
+                  <div v-if="mannedOsceExams.length === 0" class="text-center py-5">
+                    <div class="no-data-icon mb-3">
+                      <i class="bi bi-person-video3" style="font-size: 3.5rem; color: #dee2e6;"></i>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">5:00 PM</div>
-                        <h3 class="timeline-title">HPC Story</h3>
-                        <p class="timeline-presenter">Video Presentation</p>
+                    <h3 class="mb-3">No Manned OSCE Stations Available</h3>
+                    <p class="text-muted mb-4">There are currently no manned OSCE stations available. Please check back later!</p>
+                    
+                    <!-- Debug information -->
+                    <div class="text-start mt-4 p-3 bg-light" style="max-width: 600px; margin: 0 auto;">
+                      <h5>Debug Information:</h5>
+                      <p><strong>Your subcategory:</strong> {{ getUserSubcategory() || 'Not set' }}</p>
+                      <p><small>To see manned OSCE exams, your subcategory must match one of: nurse_course_exam, nurse_course_only, nurse_exam_only, foreign_exam_course_only</small></p>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">5:10 PM</div>
-                        <h3 class="timeline-title">Mayor's Address</h3>
-                        <p class="timeline-presenter">Councillor Danny Rich<br><small>Mayor of Barnet</small></p>
+                  </div>
+                  
+                  <div v-else class="row g-4">
+                    <div class="col-md-6" v-for="(exam, index) in mannedOsceExams" :key="`manned-${index}`">
+                      <div class="osce-exam-card manned-exam-card" :class="{'taken-exam': hasUserTakenExam(exam.id)}">
+                        <div class="exam-status-ribbon" v-if="hasUserTakenExam(exam.id)">
+                          <span><i class="bi bi-check-circle-fill"></i> Completed</span>
+                        </div>
+                        <div class="exam-header">
+                          <div class="exam-icon manned-icon">
+                            <i class="bi bi-person-video3"></i>
+                          </div>
+                          <div class="exam-info">
+                            <h3 class="exam-title">{{ exam.station_details?.title || exam.title }}</h3>
+                            <div class="exam-badges">
+                              <span class="badge bg-info text-dark">
+                                <i class="bi bi-person-badge"></i> Manned Station
+                              </span>
+                              <span class="badge bg-light text-dark">
+                                <i class="bi bi-clock"></i> {{ exam.station_details?.duration_minutes || 10 }} minutes
+                              </span>
+                              <span class="badge bg-light text-dark">
+                                <i class="bi bi-body-text"></i> {{ exam.body_part_requirements?.length || 0 }} body parts
+                              </span>
+                              <span class="badge bg-light text-dark" v-if="hasUserTakenExam(exam.id)">
+                                <i class="bi bi-calendar-check"></i> Last: {{ getLastAttemptDate(exam.id) }}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="exam-body">
+                          <p>{{ exam.station_details?.scenario || 'Practice clinical examination skills with 3D human model interaction.' }}</p>
+                          
+                          <div class="osce-features">
+                            <div class="feature-item">
+                              <i class="bi bi-check-circle"></i>
+                              <span>3D Human Model Interaction</span>
+                            </div>
+                            <div class="feature-item">
+                              <i class="bi bi-check-circle"></i>
+                              <span>Physical Examination Practice</span>
+                            </div>
+                            <div class="feature-item">
+                              <i class="bi bi-check-circle"></i>
+                              <span>Immediate Scoring & Feedback</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="exam-footer">
+                          <button 
+                            v-if="hasUserTakenExam(exam.id)" 
+                            class="btn btn-outline-info me-2" 
+                            @click="viewExamResults(exam.id)"
+                          >
+                            <i class="bi bi-bar-chart-fill me-1"></i> View Results
+                          </button>
+                          <button 
+                            class="btn btn-primary" 
+                            @click="handleExamAccess(exam)"
+                          >
+                            <i class="bi bi-play-fill me-1"></i> {{ hasUserTakenExam(exam.id) ? 'Retake Exam' : 'Start Exam' }}
+                          </button>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">5:20 PM</div>
-                        <h3 class="timeline-title">Musical Performance</h3>
-                        <p class="timeline-presenter">Min. Melissa Sesay</p>
+                
+                <!-- Diagnostics Section -->
+                <div v-if="osceTab === 'diagnostics'">
+                  <div v-if="filteredDiagnosticExams.length === 0" class="text-center py-5">
+                    <div class="no-data-icon mb-3">
+                      <i class="bi bi-clipboard-data" style="font-size: 3.5rem; color: #dee2e6;"></i>
                     </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">5:30 PM</div>
-                        <h3 class="timeline-title">Exaltation & Prayer</h3>
-                        <p class="timeline-presenter">Dr Gospel Odame-Kentoe</p>
+                    <h3 class="mb-3">No Diagnostic Exams Available</h3>
+                    <p class="text-muted mb-4">There are currently no diagnostic exams available for your category. Please check back later!</p>
+                  </div>
+                  
+                  <div v-else class="row g-4">
+                    <div class="col-md-6" v-for="(exam, index) in filteredDiagnosticExams" :key="`diagnostic-${index}`">
+                      <div class="osce-exam-card diagnostic-exam-card" :class="{'taken-exam': hasUserTakenExam(exam.id)}">
+                        <div class="exam-status-ribbon" v-if="hasUserTakenExam(exam.id)">
+                          <span><i class="bi bi-check-circle-fill"></i> Completed</span>
+                        </div>
+                        <div class="exam-header">
+                          <div class="exam-icon diagnostic-icon" :class="`diagnostic-${exam.diagnostic_type || 'default'}`">
+                            <i :class="`bi ${exam.diagnosticTypeIcon || 'bi-clipboard-data'}`"></i>
+                          </div>
+                          <div class="exam-info">
+                            <h3 class="exam-title">{{ exam.title }}</h3>
+                            <div class="exam-badges">
+                              <span class="badge bg-purple-light text-dark">
+                                <i class="bi bi-tag"></i> {{ exam.diagnosticTypeName || 'Diagnostic Exam' }}
+                              </span>
+                              <span class="badge bg-light text-dark">
+                                <i class="bi bi-clock"></i> {{ exam.duration_minutes }} minutes
+                              </span>
+                              <span class="badge bg-light text-dark">
+                                <i class="bi bi-collection"></i> {{ exam.case_count || 0 }} cases
+                              </span>
+                              <span class="badge bg-light text-dark" v-if="hasUserTakenExam(exam.id || exam.examId)">
+                                <i class="bi bi-calendar-check"></i> Last: {{ getLastAttemptDate(exam.id || exam.examId) }}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="exam-body">
+                          <p>{{ exam.description }}</p>
+                          
+                          <div class="osce-features diagnostic-features">
+                            <div class="feature-item">
+                              <i class="bi bi-check-circle"></i>
+                              <span>Image-based diagnosis</span>
+                            </div>
+                            <div class="feature-item">
+                              <i class="bi bi-check-circle"></i>
+                              <span>Clinical interpretation</span>
+                            </div>
+                            <div class="feature-item">
+                              <i class="bi bi-check-circle"></i>
+                              <span>Detailed explanations</span>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="exam-footer">
+                          <button 
+                            v-if="hasUserTakenExam(exam.id || exam.examId)" 
+                            class="btn btn-outline-info me-2" 
+                            @click="viewExamResults(exam.id || exam.examId)"
+                          >
+                            <i class="bi bi-bar-chart-fill me-1"></i> View Results
+                          </button>
+                          <button 
+                            class="btn btn-purple" 
+                            @click="handleExamAccess(exam)"
+                          >
+                            <i class="bi bi-play-fill me-1"></i> {{ hasUserTakenExam(exam.id || exam.examId) ? 'Retake Exam' : 'Start Exam' }}
+                          </button>
+                        </div>
+                      </div>
                     </div>
+                  </div>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">5:50 PM</div>
-                        <h3 class="timeline-title">Cake Cutting</h3>
-                        <p class="timeline-presenter">Ps Simeon, HPC Leaders & Dr Gospel</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">6:00 PM</div>
-                        <h3 class="timeline-title">Benediction</h3>
-                        <p class="timeline-presenter">Ps Simeon</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">6:05 PM</div>
-                        <h3 class="timeline-title">Closing Praise Jam</h3>
-                        <p class="timeline-presenter">HPC Band</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-node"></div>
-                    <div class="timeline-content">
-                        <div class="time-badge">6:25 PM</div>
-                        <h3 class="timeline-title">Fellowship</h3>
-                        <p class="timeline-presenter">Refreshments • Photos • Networking</p>
-                    </div>
-                </div>
+              </div>
             </div>
+            
+            <!-- Settings Section -->
+            <div v-if="activeSection === 'settings'" class="dashboard-section">
+              <h2>Settings</h2>
+              
+              <div class="settings-container">
+                <!-- Notification Settings -->
+                <div class="settings-card">
+                  <div class="settings-header">
+                    <div class="settings-icon">
+                      <i class="bi bi-bell"></i>
+                    </div>
+                    <div class="settings-title">
+                      <h3>Notification Preferences</h3>
+                      <p>Control which notifications you receive and how</p>
+                    </div>
+                  </div>
+                  <div class="settings-body">
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>Email Notifications</h4>
+                        <p>Receive important updates via email</p>
+                      </div>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="email-notifications" v-model="settings.emailNotifications">
+                        <label for="email-notifications"></label>
+                      </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>WhatsApp Notifications</h4>
+                        <p>Get instant notifications on WhatsApp</p>
+                      </div>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="whatsapp-notifications" v-model="settings.whatsappNotifications">
+                        <label for="whatsapp-notifications"></label>
+                      </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>Course Reminders</h4>
+                        <p>Reminders about upcoming classes and deadlines</p>
+                      </div>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="course-reminders" v-model="settings.courseReminders">
+                        <label for="course-reminders"></label>
+                      </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>New Content Alerts</h4>
+                        <p>Be notified when new content is available</p>
+                      </div>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="new-content-alerts" v-model="settings.newContentAlerts">
+                        <label for="new-content-alerts"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Privacy Settings -->
+                <div class="settings-card">
+                  <div class="settings-header">
+                    <div class="settings-icon">
+                      <i class="bi bi-shield-lock"></i>
+                    </div>
+                    <div class="settings-title">
+                      <h3>Privacy & Security</h3>
+                      <p>Manage your privacy preferences and account security</p>
+                    </div>
+                  </div>
+                  <div class="settings-body">
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>Public Profile</h4>
+                        <p>Allow other students to see your profile</p>
+                      </div>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="public-profile" v-model="settings.publicProfile">
+                        <label for="public-profile"></label>
+                      </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>Two-Factor Authentication</h4>
+                        <p>Add an extra layer of security to your account</p>
+                      </div>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="two-factor" v-model="settings.twoFactor">
+                        <label for="two-factor"></label>
+                      </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>Activity Log</h4>
+                        <p>Track and review your account activity</p>
+                      </div>
+                      <button class="btn btn-outline-primary">View Activity</button>
+                    </div>
+                    
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>Data Access</h4>
+                        <p>Download your personal data</p>
+                      </div>
+                      <button class="btn btn-outline-primary">Request Data</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Appearance Settings -->
+                <div class="settings-card">
+                  <div class="settings-header">
+                    <div class="settings-icon">
+                      <i class="bi bi-palette"></i>
+                    </div>
+                    <div class="settings-title">
+                      <h3>Display & Accessibility</h3>
+                      <p>Customize your experience on TutorMed</p>
+                    </div>
+                  </div>
+                  <div class="settings-body">
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>Theme Preference</h4>
+                        <p>Choose between light and dark mode</p>
+                      </div>
+                      <div class="theme-toggle">
+                        <button class="theme-btn" :class="{ active: settings.theme === 'light' }" @click="changeTheme('light')">
+                          <i class="bi bi-sun"></i> Light
+                        </button>
+                        <button class="theme-btn" :class="{ active: settings.theme === 'dark' }" @click="changeTheme('dark')">
+                          <i class="bi bi-moon"></i> Dark
+                        </button>
+                        <button class="theme-btn" :class="{ active: settings.theme === 'system' }" @click="changeTheme('system')">
+                          <i class="bi bi-laptop"></i> System
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>Font Size</h4>
+                        <p>Adjust the text size for better readability</p>
+                      </div>
+                      <div class="font-size-selector">
+                        <button class="font-size-btn" :class="{ active: settings.fontSize === 'small' }" @click="changeFontSize('small')">A</button>
+                        <button class="font-size-btn" :class="{ active: settings.fontSize === 'medium' }" @click="changeFontSize('medium')">A</button>
+                        <button class="font-size-btn" :class="{ active: settings.fontSize === 'large' }" @click="changeFontSize('large')">A</button>
+                      </div>
+                    </div>
+                    
+                    <div class="settings-item">
+                      <div class="settings-item-info">
+                        <h4>Animations</h4>
+                        <p>Enable or disable interface animations</p>
+                      </div>
+                      <div class="toggle-switch">
+                        <input type="checkbox" id="animations" v-model="settings.animations" @change="applyAnimations(settings.animations)">
+                        <label for="animations"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Subscription Settings -->
+                <div class="settings-card">
+                  <div class="settings-header">
+                    <div class="settings-icon subscription-icon">
+                      <i class="bi bi-credit-card"></i>
+                    </div>
+                    <div class="settings-title">
+                      <h3>Subscription Management</h3>
+                      <p>View and manage your TutorMed subscription</p>
+                    </div>
+                    <div class="subscription-badge">
+                      <span>Premium</span>
+                    </div>
+                  </div>
+                  <div class="settings-body">
+                    <div class="subscription-info">
+                      <div class="subscription-details">
+                        <div class="subscription-type">Premium {{ userCategoryName }} Plan</div>
+                        <div class="subscription-period">Annual Subscription</div>
+                        <div class="subscription-date">Renews on June 30, 2025</div>
+                      </div>
+                      <div class="subscription-price">
+                        <div class="amount">₵999.99</div>
+                        <div class="period">/year</div>
+                      </div>
+                    </div>
+                    
+                    <div class="subscription-features">
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle"></i>
+                        <span>Unlimited access to all courses</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle"></i>
+                        <span>Personalized study plans</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle"></i>
+                        <span>Unlimited mock exams</span>
+                      </div>
+                      <div class="feature-item">
+                        <i class="bi bi-check-circle"></i>
+                        <span>Priority support</span>
+                      </div>
+                    </div>
+                    
+                    <div class="subscription-actions">
+                      <button class="btn btn-outline-primary">Manage Subscription</button>
+                      <button class="btn btn-outline-danger">Cancel Subscription</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="settings-actions">
+                  <button class="btn btn-primary" @click="saveSettings">Save Settings</button>
+                </div>
+              </div>
+            </div><!-- End Settings -->
+            
+          </div><!-- End Main Content -->
         </div>
-    </section>
-
-    
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="image.png" alt="HPC Anniversary Logo">
-            </div>
-            <p class="footer-text">High Praise Chapel • Elim City</p>
-            <div class="footer-divider"></div>
-            <p class="footer-text">5 Years of Grace • June 28, 2025</p>
-        </div>
-    </footer>
-
-    <!-- Scroll to Top -->
-    <div class="scroll-top" id="scrollTop">
-        <i class="fas fa-chevron-up"></i>
+      </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Generate floating particles
-        function createParticles() {
-            const bgAnimation = document.getElementById('bgAnimation');
-            const particleCount = 50;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'floating-particle';
-                particle.style.width = Math.random() * 6 + 2 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = Math.random() * 20 + 20 + 's';
-                bgAnimation.appendChild(particle);
-            }
-        }
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('show');
-                    }, index * 100);
-                }
-            });
-        }, observerOptions);
-
-        // Observe timeline items
-        document.querySelectorAll('.timeline-item').forEach(item => {
-            observer.observe(item);
-        });
-
-        // Scroll to top functionality
-        const scrollTop = document.getElementById('scrollTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                scrollTop.classList.add('show');
-            } else {
-                scrollTop.classList.remove('show');
-            }
-        });
-
-        scrollTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Mouse glow effect
-        document.addEventListener('mousemove', (e) => {
-            const glow = document.createElement('div');
-            glow.style.position = 'fixed';
-            glow.style.left = e.clientX + 'px';
-            glow.style.top = e.clientY + 'px';
-            glow.style.width = '0';
-            glow.style.height = '0';
-            glow.style.background = 'radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent)';
-            glow.style.borderRadius = '50%';
-            glow.style.pointerEvents = 'none';
-            glow.style.transform = 'translate(-50%, -50%)';
-            glow.style.transition = 'all 0.5s ease-out';
-            glow.style.zIndex = '9999';
-            
-            document.body.appendChild(glow);
-            
-            setTimeout(() => {
-                glow.style.width = '100px';
-                glow.style.height = '100px';
-                glow.style.opacity = '0';
-            }, 10);
-            
-            setTimeout(() => glow.remove(), 500);
-        });
-
-        // Initialize
-        createParticles();
-
-        // Parallax effect on hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.scrollY;
-            const hero = document.querySelector('.hero-section');
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        });
-    </script>
-</body>
-</html>
