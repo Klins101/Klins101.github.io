@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Retreat 2025 | Asford International Hotel</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px rgba(0,0,0,0.1);
+            --shadow-2xl: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #333;
+        }
+
+        /* Smooth Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 6px;
+        }
+
+        /* Particle Canvas */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 100%, rgba(245, 158, 11, 0.2) 0%, transparent 50%);
+            animation: gradientShift 10s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.05);
+            padding: 4rem 3rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            animation: heroFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #e0e7ff 50%, #c7d2fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .hero-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            color: #fbbf24;
+            font-weight: 500;
+            background: rgba(251, 191, 36, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
+        }
+
+        /* Hosts Section */
+        .hosts-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .hosts-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        .co-hosts {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            font-weight: 500;
+        }
+
+        .co-host-item {
+            padding: 0 0.5rem;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .co-host-item:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.2);
+        }
+
+        .separator {
+            color: #475569;
+        }
+
+        @media (max-width: 768px) {
+            .co-hosts {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .separator {
+                display: none;
+            }
+        }
+
+        .cta-button {
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Schedule Section */
+        .schedule-section {
+            background: #ffffff;
+            position: relative;
+            padding: 6rem 0;
+            overflow: hidden;
+        }
+
+        .schedule-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 300px;
+            background: linear-gradient(180deg, rgba(99, 102, 241, 0.05) 0%, transparent 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        /* Timeline Navigation */
+        .timeline-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-nav-item {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #475569;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .timeline-nav-item:hover::before,
+        .timeline-nav-item.active::before {
+            left: 0;
+        }
+
+        .timeline-nav-item:hover,
+        .timeline-nav-item.active {
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        /* Day Schedule Container */
+        .day-schedule {
+            display: none;
+            animation: fadeInScale 0.5s ease;
+        }
+
+        .day-schedule.active {
+            display: block;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Modern Timeline Design */
+        .modern-timeline {
+            position: relative;
+            padding: 2rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .timeline-track {
+            position: absolute;
+            left: 120px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 3px;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 0;
+        }
+
+        .timeline-time {
+            min-width: 100px;
+            text-align: right;
+            padding-top: 1.5rem;
+        }
+
+        .time-badge {
+            display: inline-block;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 109px;
+            top: 1.75rem;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:hover .timeline-marker {
+            transform: scale(1.3);
+            background: var(--primary);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: top;
+        }
+
+        .timeline-content:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .timeline-content:hover::before {
+            transform: scaleY(1);
+        }
+
+        .session-type {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            margin-bottom: 0.5rem;
+        }
+
+        .type-meal {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+        }
+
+        .type-session {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .type-activity {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent);
+        }
+
+        .type-special {
+            background: var(--gradient-secondary);
+            color: white;
+        }
+
+        .session-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .session-description {
+            color: #64748b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .highlight-session .timeline-content {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #fbbf24;
+            animation: pulseGlow 2s ease infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 5px 15px rgba(251, 191, 36, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(251, 191, 36, 0.5);
+            }
+        }
+
+        .highlight-session .session-title {
+            color: #92400e;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .highlight-session .session-title::after {
+            content: '⭐';
+            font-size: 1.2rem;
+        }
+
+        /* Info Cards Section */
+        .info-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid #e2e8f0;
+        }
+
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .info-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover .info-icon-wrapper {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        .info-icon {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .info-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .info-list li:hover {
+            padding-left: 10px;
+            background: rgba(99, 102, 241, 0.05);
+            margin: 0 -10px;
+            padding-right: 10px;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Notes Section */
+        .notes-section {
+            background: var(--gradient-dark);
+            padding: 5rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notes-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .notes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .note-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .note-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-secondary);
+        }
+
+        .note-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .note-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .note-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+
+        .note-text {
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+
+        /* Floating Navigation */
+        .floating-nav {
+            position: fixed;
+            top: 50%;
+            right: 30px;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 50px;
+        }
+
+        .nav-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-dot::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #1e293b;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-dot:hover::before {
+            opacity: 1;
+        }
+
+        .nav-dot:hover,
+        .nav-dot.active {
+            background: white;
+            transform: scale(1.5);
+            box-shadow: 0 0 20px rgba(255,255,255,0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #0a0a0a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-hosts {
+            margin-bottom: 2rem;
+        }
+
+        .footer-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-main-host {
+            font-size: 1.3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-co-hosts {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .footer-divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #475569, transparent);
+            margin: 2rem auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                padding: 2.5rem 1.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .timeline-track {
+                left: 20px;
+            }
+            
+            .timeline-marker {
+                left: 9px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                padding-left: 3rem;
+            }
+            
+            .timeline-time {
+                text-align: left;
+                min-width: auto;
+                padding-top: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .floating-nav {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-circle {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-circle"></div>
+    </div>
+
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <!-- Floating Navigation -->
+    <div class="floating-nav">
+        <div class="nav-dot active" data-tooltip="Home" onclick="scrollToSection('hero')"></div>
+        <div class="nav-dot" data-tooltip="Schedule" onclick="scrollToSection('schedule')"></div>
+        <div class="nav-dot" data-tooltip="Information" onclick="scrollToSection('info')"></div>
+        <div class="nav-dot" data-tooltip="Important Notes" onclick="scrollToSection('notes')"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content" data-aos="zoom-in">
+            <h1 class="hero-title">Summer Retreat 2025</h1>
+            <p class="hero-subtitle">Asford International Hotel</p>
+            <div class="hero-date">
+                <i class="fas fa-calendar-alt"></i>
+                Monday 18th - Wednesday 20th August
+            </div>
+            
+            <!-- Hosts Section -->
+            <div class="hosts-section">
+                <p class="hosts-label">Hosted by</p>
+                <div class="co-hosts">
+                    <span class="co-host-item">Global Crossfire Church UK</span>
+                    <span class="separator">•</span>
+                    <span class="co-host-item">Elim City, Great Mansion Church</span>
+                    <span class="separator">•</span>
+                    <span class="co-host-item">Elim City, International Prayer Ministry</span>
+                    <span class="separator">•</span>
+                    <span class="co-host-item">Elim City, High Praise Chapel</span>
+                </div>
+            </div>
+            
+            <button class="cta-button" onclick="scrollToSection('schedule')">
+                Explore Schedule <i class="fas fa-arrow-right ms-2"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="schedule-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Event Schedule</h2>
+                <p class="section-subtitle">Three transformative days of spiritual growth and fellowship</p>
+            </div>
+
+            <!-- Timeline Navigation -->
+            <div class="timeline-nav" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-nav-item active" onclick="showDay('monday')">
+                    <i class="fas fa-sun me-2"></i>Monday Evening
+                </div>
+                <div class="timeline-nav-item" onclick="showDay('tuesday')">
+                    <i class="fas fa-calendar-day me-2"></i>Tuesday Full Day
+                </div>
+                <div class="timeline-nav-item" onclick="showDay('wednesday')">
+                    <i class="fas fa-sunset me-2"></i>Wednesday Closing
+                </div>
+            </div>
+
+            <!-- Monday Schedule -->
+            <div id="monday" class="day-schedule active">
+                <div class="modern-timeline" data-aos="fade-up">
+                    <div class="timeline-track"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">14:00 - 17:30</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Check-in</span>
+                            <h3 class="session-title">Arrival & Room Allocation</h3>
+                            <p class="session-description">Welcome to the retreat! Check in at reception and get settled into your room.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">17:30 - 18:30</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-session">Meeting</span>
+                            <h3 class="session-title">Briefing</h3>
+                            <p class="session-description">Important information and guidelines for the retreat.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">18:30 - 19:30</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-meal">Meal</span>
+                            <h3 class="session-title">Dinner</h3>
+                            <p class="session-description">Enjoy your first meal together as a community.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">19:30 - 20:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Preparation</span>
+                            <h3 class="session-title">Preparation for Service</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item highlight-session">
+                        <div class="timeline-time">
+                            <span class="time-badge">20:00 - 22:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-special">Main Event</span>
+                            <h3 class="session-title">OPENING SESSION</h3>
+                            <p class="session-description">Join us for an inspiring opening service to kick off the retreat.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">22:00 - 22:30</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Free Time</span>
+                            <h3 class="session-title">Fellowship & Relaxation</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">23:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Rest</span>
+                            <h3 class="session-title">Lights Out</h3>
+                            <p class="session-description">Get a good night's rest for tomorrow's activities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tuesday Schedule -->
+            <div id="tuesday" class="day-schedule">
+                <div class="modern-timeline" data-aos="fade-up">
+                    <div class="timeline-track"></div>
+                    
+                    <!-- Morning Sessions -->
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">06:30 - 08:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Morning</span>
+                            <h3 class="session-title">Preparation</h3>
+                            <p class="session-description">Start your day with personal preparation and prayer.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">08:00 - 08:45</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-meal">Meal</span>
+                            <h3 class="session-title">Full English Breakfast</h3>
+                            <p class="session-description">Energize yourself with a hearty breakfast.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item highlight-session">
+                        <div class="timeline-time">
+                            <span class="time-badge">09:00 - 11:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-special">Main Event</span>
+                            <h3 class="session-title">MORNING SESSION</h3>
+                            <p class="session-description">Powerful morning worship and teaching session.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">11:00 - 11:30</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Break</span>
+                            <h3 class="session-title">Tea Break</h3>
+                        </div>
+                    </div>
+
+                    <!-- Afternoon Sessions -->
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">11:30 - 12:30</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-session">Interactive</span>
+                            <h3 class="session-title">Workshop / Panel & Youth Discussion</h3>
+                            <p class="session-description">Engage in meaningful discussions and interactive workshops.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">13:00 - 14:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-meal">Meal</span>
+                            <h3 class="session-title">Lunch</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item highlight-session">
+                        <div class="timeline-time">
+                            <span class="time-badge">14:00 - 14:30</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-special">Batism</span>
+                            <h3 class="session-title">Baptism Service</h3>
+                            <p class="session-description">Witness and celebrate baptisms.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">14:30 - 15:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Break</span>
+                            <h3 class="session-title">Tea Break & Fellowship</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">15:00 - 18:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Recreation</span>
+                            <h3 class="session-title">Games & Fellowship</h3>
+                            <p class="session-description">Enjoy swimming, sports, and fellowship activities.</p>
+                        </div>
+                    </div>
+
+                    <!-- Evening Sessions -->
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">18:15 - 19:15</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-meal">Meal</span>
+                            <h3 class="session-title">Dinner</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">19:15 - 19:30</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Preparation</span>
+                            <h3 class="session-title">Preparation for Service</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item highlight-session">
+                        <div class="timeline-time">
+                            <span class="time-badge">19:30 - 22:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-special">Main Event</span>
+                            <h3 class="session-title">EVENING SESSION & Activity Presentations</h3>
+                            <p class="session-description">Dynamic evening service with presentations and worship.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">23:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Rest</span>
+                            <h3 class="session-title">Lights Out</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wednesday Schedule -->
+            <div id="wednesday" class="day-schedule">
+                <div class="modern-timeline" data-aos="fade-up">
+                    <div class="timeline-track"></div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">06:30 - 08:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Morning</span>
+                            <h3 class="session-title">Preparation</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">08:00 - 09:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-meal">Meal</span>
+                            <h3 class="session-title">Full English Breakfast</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">09:00 - 09:30</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Check-out</span>
+                            <h3 class="session-title">Room Check-out</h3>
+                            <p class="session-description">Please bring luggage to the holding area.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item highlight-session">
+                        <div class="timeline-time">
+                            <span class="time-badge">09:30 - 13:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-special">Main Event</span>
+                            <h3 class="session-title">FINAL MORNING SESSION</h3>
+                            <p class="session-description">
+                                <strong>09:30-10:30:</strong> Workshop/Panel & Youth Discussion<br>
+                                <strong>10:30-11:00:</strong> Tea Break & Fellowship<br>
+                                <strong>11:00-13:00:</strong> Closing Morning Service
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">13:00 - 14:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-meal">Meal</span>
+                            <h3 class="session-title">Farewell Lunch</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">14:00 - 15:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-session">Closing</span>
+                            <h3 class="session-title">Closing Remarks & Testimonies</h3>
+                            <p class="session-description">Final reflections and testimonies from retreat hosts.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">15:00 - 16:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Fellowship</span>
+                            <h3 class="session-title">Final Tea Break & Fellowship</h3>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-time">
+                            <span class="time-badge">16:00 - 17:00</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <span class="session-type type-activity">Departure</span>
+                            <h3 class="session-title">Packing & Departure</h3>
+                            <p class="session-description">Safe travels! See you next year!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section id="info" class="info-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Essential Information</h2>
+                <p class="section-subtitle">Everything you need to know for your stay</p>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-icon-wrapper">
+                        <i class="fas fa-utensils info-icon"></i>
+                    </div>
+                    <h3 class="info-card-title">Meals & Refreshments</h3>
+                    <ul class="info-list">
+                        <li><strong>Monday:</strong> Dinner included</li>
+                        <li><strong>Tuesday:</strong> Full English Breakfast, Lunch, Dinner</li>
+                        <li><strong>Wednesday:</strong> Full English Breakfast, Lunch</li>
+                        
+                    </ul>
+                </div>
+                
+                <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-icon-wrapper">
+                        <i class="fas fa-swimming-pool info-icon"></i>
+                    </div>
+                    <h3 class="info-card-title">Activities & Facilities</h3>
+                    <ul class="info-list">
+                        <li><i class="fas fa-gamepad me-2"></i>Indoor & Outdoor Games</li>
+                        <li><i class="fas fa-swimmer me-2"></i>Swimming Pool & Jacuzzi</li>
+                        <li><i class="fas fa-dumbbell me-2"></i>Fully Equipped Gym</li>
+                        <li><i class="fas fa-spa me-2"></i>Spa Services (Additional fee)</li>
+                    </ul>
+                </div>
+                
+                <div class="info-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-icon-wrapper">
+                        <i class="fas fa-clock info-icon"></i>
+                    </div>
+                    <h3 class="info-card-title">Important Timings</h3>
+                    <ul class="info-list">
+                        <li><strong>Arrival:</strong> Monday 14:00 - 17:30</li>
+                        <li><strong>Check-out:</strong> Wednesday 09:30 sharp</li>
+                        <li><strong>Final Departure:</strong> Wednesday by 16:00</li>
+                        <li><i class="fas fa-info-circle text-muted me-2"></i>Speakers may be exempted</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Notes -->
+    <section id="notes" class="notes-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title text-white">Important Guidelines</h2>
+                <p class="section-subtitle text-light">Please keep these in mind during your stay</p>
+            </div>
+            
+            <div class="notes-grid">
+                <div class="note-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="note-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h4 class="note-title">Punctuality</h4>
+                    <p class="note-text">Please ensure you arrive on time to all scheduled meetings and sessions</p>
+                </div>
+                
+                <div class="note-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="note-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h4 class="note-title">Lights Out</h4>
+                    <p class="note-text">To ensure proper rest, lights out will be strictly at 23:00 (11:00 PM)</p>
+                </div>
+                
+                <div class="note-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="note-icon">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                    <h4 class="note-title">Check-out Time</h4>
+                    <p class="note-text">Wednesday morning check-out must be completed by 09:30 sharp</p>
+                </div>
+                
+                <div class="note-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="note-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h4 class="note-title">Need Assistance?</h4>
+                    <p class="note-text">Contact a retreat coordinator or minister for any help or questions</p>
+                </div>
+                
+                <div class="note-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="note-icon">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <h4 class="note-title">Leaving Premises</h4>
+                    <p class="note-text">Please inform a coordinator before leaving the retreat premises at any time</p>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-hosts">
+                <p class="footer-label">Hosted by</p>
+                <p class="footer-co-hosts">
+                    Global Crossfire Church UK • Elim City, Great Mansion Church • Elim City, International Prayer Ministry • Elim City, High Praise Chapel
+                </p>
+            </div>
+            <div class="footer-divider"></div>
+            <p class="mb-2">&copy; 2025 Summer Retreat | Asford International Hotel</p>
+            <p class="text-muted">Looking forward to an amazing time together!</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Hide loader when page loads
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 500);
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 100,
+                    density: {
+                        enable: true,
+                        value_area: 1000
+                    }
+                },
+                color: {
+                    value: ['#667eea', '#764ba2', '#f093fb', '#f5576c']
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.6,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#667eea',
+                    opacity: 0.3,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'bounce',
+                    bounce: false,
+                    attract: {
+                        enable: true,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Day Schedule Toggle
+        function showDay(day) {
+            // Hide all schedules
+            document.querySelectorAll('.day-schedule').forEach(schedule => {
+                schedule.classList.remove('active');
+            });
+            
+            // Remove active class from all nav items
+            document.querySelectorAll('.timeline-nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected schedule
+            document.getElementById(day).classList.add('active');
+            
+            // Add active class to clicked nav item
+            event.target.closest('.timeline-nav-item').classList.add('active');
+        }
+
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+                updateNavDots(sectionId);
+            }
+        }
+
+        // Update navigation dots
+        function updateNavDots(activeSectionId) {
+            const dots = document.querySelectorAll('.nav-dot');
+            const sections = ['hero', 'schedule', 'info', 'notes'];
+            
+            dots.forEach((dot, index) => {
+                if (sections[index] === activeSectionId) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Update active nav dot on scroll
+        window.addEventListener('scroll', () => {
+            const sections = ['hero', 'schedule', 'info', 'notes'];
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+            
+            sections.forEach((sectionId) => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+                        updateNavDots(sectionId);
+                    }
+                }
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-content');
+            if (parallax) {
+                const yPos = -(scrolled * 0.3);
+                parallax.style.transform = `translateY(${yPos}px)`;
+            }
+        });
+
+        // Add interactive hover sound effect (optional)
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                // You can add subtle sound effects here if desired
+                this.style.transition = 'all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('August 18, 2025 14:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            
+            if (distance > 0) {
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                
+                // Create countdown display if needed
+                console.log(`${days} days, ${hours} hours, ${minutes} minutes until the retreat!`);
+            }
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+    </script>
+</body>
+</html>
