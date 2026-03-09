@@ -167,6 +167,35 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeCitationSystem();
 });
 
+// Animate news items when they come into view
+const animateNewsItems = () => {
+    const newsItems = document.querySelectorAll('.news-item');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    newsItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateX(-20px)';
+        item.style.transition = 'all 0.6s ease-out';
+        observer.observe(item);
+    });
+};
+
+// Initialize when document is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    animateNewsItems();
+});
+
 
 // Add scroll-triggered animations for skill items
 const observerOptions = {

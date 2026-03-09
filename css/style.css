@@ -999,6 +999,12 @@ body {
   font-size: 0.875rem;
 }
 
+.paper-status.accepted {
+  background: #d1fae5;
+  color: #059669;
+  font-weight: 600;
+}
+
 .paper-title {
   color: #1f2937;
   font-size: 1.25rem;
@@ -1946,10 +1952,18 @@ body {
 }
 
 /* News Section Styles */
+#news {
+  position: relative;
+  z-index: 1;
+  background: #f8fafc;
+}
+
 .news-timeline {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem 0;
+  position: relative;
+  z-index: 2;
 }
 
 .news-item {
@@ -1962,6 +1976,10 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
   border-left: 4px solid #2563eb;
   transition: all 0.3s ease;
+  position: relative;
+  z-index: 3;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .news-item:hover {
