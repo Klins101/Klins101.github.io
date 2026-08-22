@@ -71,19 +71,6 @@ particlesJS('particles-js', {
     }
   });
   
-  // Project Card Hover Effects
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const x = e.pageX - card.offsetLeft;
-      const y = e.pageY - card.offsetTop;
-      card.style.transform = `perspective(1000px) rotateX(${-(y - card.offsetHeight/2)/10}deg) rotateY(${(x - card.offsetWidth/2)/10}deg)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
-  });
-  
   // Initialize Research Carousel
   const carousel = document.querySelector('.research-carousel');
   let isDown = false;

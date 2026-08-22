@@ -128,22 +128,6 @@ const observerOptions = {
     rootMargin: '0px'
 };
 
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.transform = 'translateY(0)';
-            entry.target.style.opacity = '1';
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.skill-item').forEach(item => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(20px)';
-    item.style.transition = 'all 0.3s ease';
-    skillObserver.observe(item);
-});
-
 // Smooth reveal for timeline items
 document.querySelectorAll('.timeline-item').forEach((item, index) => {
     item.style.opacity = '0';
@@ -168,45 +152,6 @@ document.querySelectorAll('.timeline-item').forEach((item, index) => {
 
 
 
-
-// Hover effect for project cards
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateX = (y - centerY) / 20;
-        const rotateY = -(x - centerX) / 20;
-        
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-    });
-});
-
-// Animate skill bars on scroll
-const animateSkills = () => {
-    const skillBars = document.querySelectorAll('.skill-category');
-    
-    skillBars.forEach(skillBar => {
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('skill-animate');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        observer.observe(skillBar);
-    });
-};
 
 // Parallax effect for hero section
 const hero = document.querySelector('.hero');
@@ -241,9 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
         once: true,
         mirror: false
     });
-    
-    // Initialize skill animations
-    animateSkills();
     
     // Initialize typing animation for hero title
     const heroTitle = document.querySelector('.hero h1');
