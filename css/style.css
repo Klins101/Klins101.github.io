@@ -1305,132 +1305,118 @@ body {
   transform: translateY(-2px);
 }
 
-/* Enhanced Profile Wrapper Styles */
-.profile-wrapper {
+/* Hero Award Visual */
+.hero-awards {
   position: relative;
-  width: 320px;
-  height: 320px;
-  margin: 0 auto;
+  width: min(100%, 520px);
+  min-height: 430px;
+  margin-left: auto;
 }
 
-.profile-img-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+.award-photo {
+  position: absolute;
+  margin: 0;
   overflow: hidden;
-  background: linear-gradient(45deg, #2563eb, #3b82f6);
-  padding: 5px; /* Creates border effect */
-  animation: morphing 10s ease-in-out infinite;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
 }
 
-.profile-img {
+.award-photo img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  transition: all 0.3s ease;
 }
 
-.profile-img-container:hover {
-  transform: scale(1.02);
-  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-}
-
-.tech-badges {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.award-photo-main {
   top: 0;
-  left: 0;
-  pointer-events: none;
+  right: 0;
+  width: 88%;
+  aspect-ratio: 1.35;
 }
 
-.badge {
+.award-photo-main img {
+  object-position: 42% center;
+}
+
+.award-photo-secondary {
+  left: 0;
+  bottom: 42px;
+  width: 56%;
+  aspect-ratio: 1.55;
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.2);
+}
+
+.award-photo-secondary img {
+  object-position: 68% 8%;
+}
+
+.award-caption {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  background: white;
-  border-radius: 50%;
+  right: 24px;
+  bottom: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: float 3s ease-in-out infinite;
+  gap: 0.85rem;
+  max-width: 340px;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.14);
+  backdrop-filter: blur(12px);
 }
 
-.badge i {
+.award-caption i {
   color: #2563eb;
-  font-size: 1.5rem;
+  font-size: 1.35rem;
 }
 
-.badge:nth-child(1) {
-  top: 10%;
-  left: -10%;
-  animation-delay: 0s;
+.award-caption span,
+.award-caption strong {
+  display: block;
 }
 
-.badge:nth-child(2) {
-  top: 80%;
-  left: 0%;
-  animation-delay: 0.5s;
+.award-caption span {
+  color: #111827;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
-.badge:nth-child(3) {
-  top: 30%;
-  right: -10%;
-  animation-delay: 1s;
-}
-
-@keyframes morphing {
-  0% {
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  }
-  25% {
-      border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
-  }
-  50% {
-      border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
-  }
-  75% {
-      border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
-  }
-  100% {
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-      transform: translateY(0);
-  }
-  50% {
-      transform: translateY(-10px);
-  }
+.award-caption strong {
+  color: #6b7280;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 0.15rem;
 }
 
 @media (max-width: 1024px) {
-  .profile-wrapper {
-      width: 280px;
-      height: 280px;
+  .hero-awards {
+      min-height: 380px;
+      margin: 2rem auto 0;
   }
 }
 
 @media (max-width: 768px) {
-  .profile-wrapper {
-      width: 240px;
-      height: 240px;
+  .hero-awards {
+      min-height: 330px;
   }
 
-  .badge {
-      width: 40px;
-      height: 40px;
+  .award-photo-main {
+      width: 92%;
   }
 
-  .badge i {
-      font-size: 1.25rem;
+  .award-photo-secondary {
+      width: 60%;
+      bottom: 54px;
+  }
+
+  .award-caption {
+      left: 18px;
+      right: 18px;
+      max-width: none;
   }
 }
 

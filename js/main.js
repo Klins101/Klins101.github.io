@@ -444,43 +444,10 @@ const highlightNavLink = () => {
 
 window.addEventListener('scroll', highlightNavLink);
 
-// Profile image hover effect
-const profileImg = document.querySelector('.profile-img');
-if (profileImg) {
-    profileImg.addEventListener('mousemove', (e) => {
-        const { left, top, width, height } = profileImg.getBoundingClientRect();
-        const x = (e.clientX - left) / width - 0.5;
-        const y = (e.clientY - top) / height - 0.5;
-        
-        profileImg.style.transform = `
-            perspective(1000px)
-            rotateY(${x * 10}deg)
-            rotateX(${-y * 10}deg)
-            translateZ(20px)
-        `;
-    });
-    
-    profileImg.addEventListener('mouseleave', () => {
-        profileImg.style.transform = 'none';
-    });
-}
-
-// Tech badges animation
-const animateTechBadges = () => {
-    const badges = document.querySelectorAll('.tech-badges .badge');
-    
-    badges.forEach((badge, index) => {
-        badge.style.animationDelay = `${index * 0.2}s`;
-    });
-};
-
 // Initialize all animations
 document.addEventListener('DOMContentLoaded', () => {
     // Trigger initial scroll reveal
     scrollReveal();
-    
-    // Initialize tech badges animation
-    animateTechBadges();
     
     // Add animation classes to elements
     document.querySelectorAll('.hero-content > *').forEach((element, index) => {
@@ -503,16 +470,6 @@ style.textContent = `
             transform: translateY(0);
         }
     }
-    
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0);
-        }
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-    
     .reveal {
         opacity: 0;
         transform: translateY(30px);
@@ -523,32 +480,7 @@ style.textContent = `
         opacity: 1;
         transform: translateY(0);
     }
-    
-    .tech-badges .badge {
-        animation: float 3s ease-in-out infinite;
-    }
 `;
 
 document.head.appendChild(style);
-
-// Profile image hover effect
-const profileImgContainer = document.querySelector('.profile-img-container');
-if (profileImgContainer) {
-    profileImgContainer.addEventListener('mousemove', (e) => {
-        const { left, top, width, height } = profileImgContainer.getBoundingClientRect();
-        const x = (e.clientX - left) / width - 0.5;
-        const y = (e.clientY - top) / height - 0.5;
-        
-        profileImgContainer.style.transform = `
-            perspective(1000px)
-            rotateY(${x * 10}deg)
-            rotateX(${-y * 10}deg)
-            scale(1.02)
-        `;
-    });
-    
-    profileImgContainer.addEventListener('mouseleave', () => {
-        profileImgContainer.style.transform = 'none';
-    });
-}
 
