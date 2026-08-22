@@ -320,7 +320,7 @@ const typeWriter = (element, text, speed = 100) => {
 document.addEventListener('DOMContentLoaded', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        typeWriter(heroTitle, 'Robotics & AI Researcher', 100);
+        typeWriter(heroTitle, 'PhD Researcher in Robotics & AI', 100);
     }
 });
 
