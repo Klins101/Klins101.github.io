@@ -277,31 +277,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Typing effect for hero section
-const typeWriter = (element, text, speed = 100) => {
-    let i = 0;
-    element.innerHTML = '';
-    
-    const type = () => {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    };
-    
-    type();
-};
-
-// Initialize typing effect
-document.addEventListener('DOMContentLoaded', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        typeWriter(heroTitle, 'PhD Researcher in Robotics & AI', 100);
-    }
-});
-
-
 // Particles background configuration
 particlesJS('particles-js', {
     particles: {
@@ -402,21 +377,6 @@ const scrollReveal = () => {
 };
 
 window.addEventListener('scroll', scrollReveal);
-
-// Hero section parallax effect
-const heroParallax = () => {
-    const hero = document.querySelector('.hero');
-    const scrolled = window.pageYOffset;
-    
-    if (hero) {
-        const limit = hero.offsetTop + hero.offsetHeight;
-        if (scrolled > hero.offsetTop && scrolled <= limit) {
-            hero.style.backgroundPositionY = `${(scrolled - hero.offsetTop) * 0.5}px`;
-        }
-    }
-};
-
-window.addEventListener('scroll', heroParallax);
 
 // Active nav link highlight
 const highlightNavLink = () => {

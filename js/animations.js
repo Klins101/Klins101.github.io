@@ -153,31 +153,6 @@ document.querySelectorAll('.timeline-item').forEach((item, index) => {
 
 
 
-// Parallax effect for hero section
-const hero = document.querySelector('.hero');
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// Typing animation for hero section
-const typeWriter = (element, text, speed = 100) => {
-    let i = 0;
-    element.innerHTML = '';
-    
-    const type = () => {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
-    };
-    
-    type();
-};
-
 // Initialize animations
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize AOS
@@ -186,12 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
         once: true,
         mirror: false
     });
-    
-    // Initialize typing animation for hero title
-    const heroTitle = document.querySelector('.hero h1');
-    if (heroTitle) {
-        typeWriter(heroTitle, 'Klinsmann Agyei', 150);
-    }
     
     // Create initial particles
     for (let i = 0; i < 30; i++) {
