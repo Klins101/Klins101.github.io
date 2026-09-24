@@ -1009,6 +1009,54 @@ body {
   border-left: 4px solid #2563eb;
 }
 
+.academic-service {
+  margin-top: 3.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.academic-service-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.academic-service-heading > i {
+  color: #2563eb;
+  font-size: 1.35rem;
+}
+
+.academic-service-heading h3 {
+  color: #1f2937;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+}
+
+.academic-service-heading p {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.service-venues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.service-venues span {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  line-height: 1.35;
+  padding: 0.4rem 0.75rem;
+}
+
 /* Leadership Timeline Styles */
 .leadership-timeline {
   position: relative;
